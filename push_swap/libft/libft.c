@@ -6,7 +6,7 @@
 /*   By: mochegri <mochegri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/28 15:35:57 by mochegri          #+#    #+#             */
-/*   Updated: 2021/03/28 16:35:05 by mochegri         ###   ########.fr       */
+/*   Updated: 2021/03/29 18:27:14 by mochegri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,6 @@ int			ft_isdigit(int c)
 
 void	    ft_putstr(char *str)
 {
-	while (str)
-		write(1, &(*str++), 1);
+	while (*str)
+		write(1, str++, 1);
 }
