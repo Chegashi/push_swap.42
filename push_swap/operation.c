@@ -6,7 +6,7 @@
 /*   By: mochegri <mochegri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/28 15:28:53 by mochegri          #+#    #+#             */
-/*   Updated: 2021/03/29 19:43:07 by mochegri         ###   ########.fr       */
+/*   Updated: 2021/03/30 19:42:47 by mochegri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,9 @@ void		ft_push(t_stack *a, t_stack *b)
 	a = tmp;
 }
 
-void        ft_rotate(void)
+void		ft_rotate(void)
 {
-    
+	//
 }
 
 void		ft_reverse(t_stack *a)
@@ -47,5 +47,4 @@ void		ft_reverse(t_stack *a)
 	last = a;
 	while (!(last->next->next))
 		last = last->next;
-	
 }
