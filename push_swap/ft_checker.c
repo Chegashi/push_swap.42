@@ -6,7 +6,7 @@
 /*   By: mochegri <mochegri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 15:15:28 by mochegri          #+#    #+#             */
-/*   Updated: 2021/03/30 19:40:35 by mochegri         ###   ########.fr       */
+/*   Updated: 2021/04/14 17:38:39 by mochegri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,22 @@
 
 int				main(int ac, char **av)
 {
-	int			to_read;
-	char		*oper;
 	t_stack		*a;
 	t_stack		*b;
 
-	to_read = 1;
-	if (ac < 2)
-		ft_exit();
-	oper = (char*)malloc(sizeof(char*));
-	a = ft_init_stack(ac, av);
-	b = NULL;
-	while (to_read && ft_get_next_line(0, oper))
-		to_read = ft_operation(a, b, oper);
+	if (ac > 1)
+	{
+		a = ft_init_stack(ac, av);
+		b = NULL;
+		while (a)
+		{
+			printf("%d\n", a->data);
+			a = a->next;
+		}
+		
+	// ft_read_commend(a, b);
 	// ft_checker(a, b);
+	}
 	return (0);
 }
 
@@ -51,11 +53,7 @@ t_stack			*ft_init_stack(int ac, char **av)
 	return (a);
 }
 
-void			ft_exit(void)
-{
-	ft_putstr("Error\n");
-	exit(EXIT_SUCCESS);
-}
+
 
 // int				ft_operation(t_stack *a, t_stack *b, char *oper)
 // {
