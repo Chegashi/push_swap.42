@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mochegri <mochegri@student.42.fr>          +#+  +:+       +#+        */
+/*   By: abort <abort@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 15:15:34 by mochegri          #+#    #+#             */
-/*   Updated: 2021/04/14 17:04:53 by mochegri         ###   ########.fr       */
+/*   Updated: 2021/04/16 03:31:11 by abort            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <unistd.h>
 # include <stdio.h>
 # include "libft/libft.h"
+# include "gnl/get_next_line.h"
 
 typedef struct		s_stack
 {
@@ -25,10 +26,18 @@ typedef struct		s_stack
 }					t_stack;
 
 int                 ft_operation(t_stack *a, t_stack *b, char *oper);
+void				ft_swap(t_stack *a);
+void				ft_push(t_stack *a, t_stack * b);
+void				ft_rotate(t_stack *a);
+void				ft_reverse(t_stack *a);
 void				ft_s(t_stack *a, t_stack *b, char *str);
 void				ft_p(t_stack *a, t_stack *b, char *str);
 void    			ft_r(t_stack *a, t_stack *b, char *str);
 void				ft_rr(t_stack *a, t_stack *b, char *str);
+void				ft_check_duplicate(t_stack *a);
+void				ft_read_cmd(t_stack *a, t_stack *b);
+void				ft_check_oper(char *str);
+void				ft_cmd(t_stack *a, t_stack *b, char *oper);
 t_stack				*ft_init_stack(int ac, char **av);
 
 # endif

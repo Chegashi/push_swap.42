@@ -3,37 +3,36 @@
 /*                                                        :::      ::::::::   */
 /*   libft.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mochegri <mochegri@student.42.fr>          +#+  +:+       +#+        */
+/*   By: abort <abort@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/28 15:35:57 by mochegri          #+#    #+#             */
-/*   Updated: 2021/04/14 17:39:41 by mochegri         ###   ########.fr       */
+/*   Updated: 2021/04/16 01:47:16 by abort            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
+
 int	ft_atoi(char *s)
 {
-	long long	nbr;
+	long 	nbr;
 	int		signe;
 
+	signe = 1;
 	nbr = 0;
 	if (*s == '-' || *s == '+')
 	{
-		if (*s == '+')
-			signe = 1;
-		else
+		if (*s == '-')
 			signe = -1;
 		s++;
 	}
 	while (*s)
 	{
+		nbr = nbr * 10 + (*s - '0');
 		if (!ft_isdigit(*s) || nbr > 2147483647 || nbr < -2147483648)
 			ft_exit();
-		nbr = nbr * 10 + (*s - '0');
 		s++;
 	}
-	printf("[%lld]\n", nbr);
+	nbr *= signe;
 	return ((int)nbr);
 }
 
@@ -54,4 +53,14 @@ void	ft_putstr(char *str)
 {
 	while (*str)
 		write(1, str++, 1);
+}
+
+int	ft_strcmp(char *s1, char *s2)
+{
+	while (*s1 && *s2 && *s1 == *s2)
+	{
+		s1++;
+		s2++;
+	}
+	return ((unsigned char)*s1 - *s2);
 }
