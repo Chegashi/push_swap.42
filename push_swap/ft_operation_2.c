@@ -6,7 +6,7 @@
 /*   By: abort <abort@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/16 03:21:51 by abort             #+#    #+#             */
-/*   Updated: 2021/04/16 04:40:48 by abort            ###   ########.fr       */
+/*   Updated: 2021/04/16 22:39:52 by abort            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void    ft_swap(t_stack *a)
 
 	tmp = a->data;
 	a->data = a->next->data;
-	a->next->data = tmp
+	a->next->data = tmp;
 }
 
 void    ft_push(t_stack *a, t_stack * b)
@@ -43,7 +43,20 @@ void	ft_reverse(t_stack *a)
 
 void ft_checker(t_stack *a, t_stack *b)
 {
+	t_stack	*tmp;
+
 	if (!b)
-		ft_putstr("ko");
-	
+		ft_putstr("ko\n");
+		ft_exit();
+	tmp = a;
+	while (tmp)
+	{
+		if (tmp->next && tmp->data > tmp->next->data)
+		{
+			ft_putstr("ko\n");
+			ft_exit();
+		}
+		tmp = tmp->next;
+	}
+	ft_putstr("OK\n");
 }

@@ -6,7 +6,7 @@
 /*   By: abort <abort@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 15:15:28 by mochegri          #+#    #+#             */
-/*   Updated: 2021/04/16 04:11:36 by abort            ###   ########.fr       */
+/*   Updated: 2021/04/17 02:52:01 by abort            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ int	main(int ac, char **av)
 	{
 		a = ft_init_stack(ac, av);
 		b = NULL;
-		ft_read_cmd(a, b);
-		ft_checker(a, b);
+		//ft_read_cmd(a, b);
+		//ft_checker(a, b);
 	}
 	return (0);
 }
