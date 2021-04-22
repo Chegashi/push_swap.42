@@ -6,7 +6,7 @@
 /*   By: abort <abort@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 15:15:28 by mochegri          #+#    #+#             */
-/*   Updated: 2021/04/17 02:52:01 by abort            ###   ########.fr       */
+/*   Updated: 2021/04/22 03:44:41 by abort            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,20 @@ int	main(int ac, char **av)
 {
 	t_stack		*a;
 	t_stack		*b;
+	char		**cmd;
 
 	if (ac > 1)
 	{
 		a = ft_init_stack(ac, av);
 		b = NULL;
-		//ft_read_cmd(a, b);
+		cmd = ft_split(ft_read_cmd(), ' ');
+		printf("==========\n");
+		ft_print_stack(a);
+		ft_reverse(&a);
+		printf("=======ee===\n");
+		ft_print_stack(a);
 		//ft_checker(a, b);
+		printf("%p%p\n",b, cmd);
 	}
 	return (0);
 }
@@ -43,7 +50,7 @@ t_stack	*ft_init_stack(int ac, char **av)
 		tmp = tmp->next;
 		tmp->data = ft_atoi(av[i]);
 	}
-	tmp->next = NULL;
+		tmp->next = NULL;
 	ft_check_duplicate(a);
 	return (a);
 }
@@ -67,18 +74,29 @@ void	ft_check_duplicate(t_stack *a)
 	}
 }
 
-void	ft_read_cmd(t_stack *a, t_stack *b)
+char	*ft_read_cmd(void)
 {
 	char *cmd;
+	char *cmds;
+	char *tmp;
 
 	cmd = (char*)malloc(sizeof(char));
-	while(ft_strcmp(cmd, ""))
+	cmds = ft_strdup("");
+	while(1)
 	{
 		get_next_line(0, &cmd);
 		ft_check_oper(cmd);
-		ft_cmd(a, b, cmd);
+		if(!ft_strcmp(cmd, ""))
+			break;
+		tmp = ft_strjoin(cmds, cmd);
+		free(cmds);
+		cmds = tmp;
+		tmp = ft_strjoin(cmds, " ");
+		free(cmds);
+		cmds = tmp;
 	}
-	cmd = (char*)malloc(sizeof(char));	
+	free(cmd);
+	return(cmds);
 }
 
 void	ft_cmd(t_stack *a, t_stack *b, char *oper)
@@ -87,6 +105,6 @@ void	ft_cmd(t_stack *a, t_stack *b, char *oper)
 		ft_s(a, b, oper);
 	else if (*oper == 'p')
 		ft_p(a, b, oper);
-	else if (*oper == 'r' && oper[1] == 'r')
-		ft_rr(a, b, oper);
+	// else if (*oper == 'r' && oper[1] == 'r')
+	// 	ft_rr(a, b, oper);
 }
