@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abort <abort@student.42.fr>                +#+  +:+       +#+        */
+/*   By: mochegri <mochegri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 15:15:34 by mochegri          #+#    #+#             */
-/*   Updated: 2021/04/22 03:42:55 by abort            ###   ########.fr       */
+/*   Updated: 2021/04/23 17:45:08 by mochegri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,16 +25,16 @@ typedef struct		s_stack
 	struct s_stack	*next;
 }					t_stack;
 
-typedef struct		s_p_swap
+typedef struct		s_push_swap
 {
-	t_stack		a;
-	t_stack		b;
+	t_stack		*a;
+	t_stack		*b;
 	int			len_a;
 	int			len_b;
 	int			color;
 	int			verbos;
 	char		**cmd;
-}					t_p_swap;
+}					t_push_swap;
 
 int                 ft_operation(t_stack *a, t_stack *b, char *oper);
 void				ft_swap(t_stack *a);
@@ -48,8 +48,8 @@ void				ft_rr(t_stack *a, t_stack *b, char *str);
 void				ft_check_duplicate(t_stack *a);
 char				*ft_read_cmd();
 void				ft_check_oper(char *str);
-void				ft_cmd(t_stack *a, t_stack *b, char *oper);
+void				ft_exec_cmd(t_push_swap		*p_checker);
 void				ft_checker(t_stack *a, t_stack *b);
 t_stack				*ft_init_stack(int ac, char **av);
-void	ft_print_stack(t_stack *a);
+void				t_print_stack(t_stack *a);
 # endif

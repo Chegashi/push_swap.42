@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_operation_2.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abort <abort@student.42.fr>                +#+  +:+       +#+        */
+/*   By: mochegri <mochegri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/16 03:21:51 by abort             #+#    #+#             */
-/*   Updated: 2021/04/22 03:42:44 by abort            ###   ########.fr       */
+/*   Updated: 2021/04/23 17:49:52 by mochegri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,22 +58,19 @@ void	ft_reverse(t_stack **a)
 	last = tmp->next;
 	tmp->next = NULL;
 	last->next = *a;
-	*a = last; 
-	printf("=======lastee===\n");
-	ft_print_stack(*a);
-	
+	*a = last; 	
 }
 
-void ft_checker(t_stack *a, t_stack *b)
+void ft_checker(t_push_swap p_s)
 {
 	t_stack	*tmp;
 
-	if (!b)
+	if (!p_s.b)
 	{
 		ft_putstr("ko\n");
 		ft_exit();
 	}
-	tmp = a;
+	tmp = p_s.a;
 	while (tmp)
 	{
 		if (tmp->next && tmp->data > tmp->next->data)
@@ -84,16 +81,4 @@ void ft_checker(t_stack *a, t_stack *b)
 		tmp = tmp->next;
 	}
 	ft_putstr("OK\n");
-}
-
-void	ft_print_stack(t_stack *a)
-{
-	t_stack *tmp;
-
-	tmp = a;
-	while(tmp)
-	{
-		printf("%d\n",tmp->data);
-		tmp = tmp->next;
-	}
 }

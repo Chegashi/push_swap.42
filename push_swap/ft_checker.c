@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_checker.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abort <abort@student.42.fr>                +#+  +:+       +#+        */
+/*   By: mochegri <mochegri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 15:15:28 by mochegri          #+#    #+#             */
-/*   Updated: 2021/04/22 03:44:41 by abort            ###   ########.fr       */
+/*   Updated: 2021/04/23 17:45:02 by mochegri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,21 @@
 
 int	main(int ac, char **av)
 {
-	t_stack		*a;
-	t_stack		*b;
-	char		**cmd;
+	t_push_swap		p_checker;
 
-	if (ac > 1)
+	av++;
+	ac--;
+	if ((p_checker.color = !ft_strcmp("-c", av[1])) ||
+			(p_checker.verbos = !ft_strcmp("-v", av[1])))
 	{
-		a = ft_init_stack(ac, av);
-		b = NULL;
-		cmd = ft_split(ft_read_cmd(), ' ');
-		printf("==========\n");
-		ft_print_stack(a);
-		ft_reverse(&a);
-		printf("=======ee===\n");
-		ft_print_stack(a);
-		//ft_checker(a, b);
-		printf("%p%p\n",b, cmd);
+		p_checker.verbos = 1;
+		av++;
 	}
+	p_checker.a = ft_init_stack(ac, av);
+	p_checker.b = NULL;
+	p_checker.cmd = ft_split(ft_read_cmd(), ' ');
+	ft_exec_cmd(&p_checker);
+	ft_checker(p_checker);
 	return (0);
 }
 
@@ -40,7 +38,7 @@ t_stack	*ft_init_stack(int ac, char **av)
 	t_stack		*a;
 	t_stack		*tmp;
 
-	i = 1;
+	i = 0;
 	tmp = (t_stack*)malloc(sizeof(t_stack));
 	a = tmp;
 	a->data = ft_atoi(av[i]);
@@ -50,7 +48,7 @@ t_stack	*ft_init_stack(int ac, char **av)
 		tmp = tmp->next;
 		tmp->data = ft_atoi(av[i]);
 	}
-		tmp->next = NULL;
+	tmp->next = NULL;
 	ft_check_duplicate(a);
 	return (a);
 }
@@ -82,12 +80,9 @@ char	*ft_read_cmd(void)
 
 	cmd = (char*)malloc(sizeof(char));
 	cmds = ft_strdup("");
-	while(1)
-	{
-		get_next_line(0, &cmd);
+	while(get_next_line(0, &cmd))
+	{	
 		ft_check_oper(cmd);
-		if(!ft_strcmp(cmd, ""))
-			break;
 		tmp = ft_strjoin(cmds, cmd);
 		free(cmds);
 		cmds = tmp;
@@ -99,12 +94,21 @@ char	*ft_read_cmd(void)
 	return(cmds);
 }
 
-void	ft_cmd(t_stack *a, t_stack *b, char *oper)
+void	ft_exec_cmd(t_push_swap *p_checker)
 {
-	if (*oper == 's')
-		ft_s(a, b, oper);
-	else if (*oper == 'p')
-		ft_p(a, b, oper);
-	// else if (*oper == 'r' && oper[1] == 'r')
-	// 	ft_rr(a, b, oper);
+	char*	cmd;
+
+	cmd = p_checker.cmd[0];
+	while (cmd)
+	{
+		if (*cmd == 's')
+			ft_s(p_checker.a, p_checker.b, cmd[1]);
+		else if (*cmd == 'p')
+			ft_p(p_checker.a, p_checker.b, cmd[1]);
+		else if (*cmd == 'r' && cmd[1] == 'r')
+			ft_rr(p_checker.a, p_checker.b, cmd[1]);
+		else
+			ft_r(p_checker.a, p_checker.b, cmd[1]);
+	}
+	
 }
