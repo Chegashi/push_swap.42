@@ -6,7 +6,7 @@
 /*   By: mochegri <mochegri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/16 03:21:51 by abort             #+#    #+#             */
-/*   Updated: 2021/04/23 17:49:52 by mochegri         ###   ########.fr       */
+/*   Updated: 2021/04/24 17:08:59 by mochegri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,18 +47,18 @@ void	ft_rotate(t_stack *a)
 	tmp->next->next = NULL;
 }
 
-void	ft_reverse(t_stack **a)
+void	ft_reverse(t_stack *a)
 {
 	t_stack	*last;
 	t_stack	*tmp;
 
-	tmp = *a;
+	tmp = a;
 	while (tmp->next->next)
 		tmp = tmp->next;
 	last = tmp->next;
 	tmp->next = NULL;
-	last->next = *a;
-	*a = last; 	
+	last->next = a;
+	a = last; 	
 }
 
 void ft_checker(t_push_swap p_s)
@@ -75,7 +75,7 @@ void ft_checker(t_push_swap p_s)
 	{
 		if (tmp->next && tmp->data > tmp->next->data)
 		{
-			ft_putstr("ko\n");
+			ft_putstr("KO\n");
 			ft_exit();
 		}
 		tmp = tmp->next;

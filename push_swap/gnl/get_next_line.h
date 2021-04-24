@@ -6,12 +6,12 @@
 /*   By: mochegri <mochegri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/28 15:34:25 by mochegri          #+#    #+#             */
-/*   Updated: 2021/03/28 15:34:27 by mochegri         ###   ########.fr       */
+/*   Updated: 2021/04/24 13:43:28 by mochegri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef __GET_NEXT_LINE_H
-# define __GET_NEXT_LINE_H
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
 
 # include <fcntl.h>
 # include <stdlib.h>

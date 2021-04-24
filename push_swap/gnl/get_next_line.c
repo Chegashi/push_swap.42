@@ -6,14 +6,14 @@
 /*   By: mochegri <mochegri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/28 15:34:48 by mochegri          #+#    #+#             */
-/*   Updated: 2021/03/28 15:37:01 by mochegri         ###   ########.fr       */
+/*   Updated: 2021/04/24 13:37:25 by mochegri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 #include <string.h>
 
-int		get_next_line(int fd, char **line)
+int	get_next_line(int fd, char **line)
 {
 	int	n;
 
@@ -22,10 +22,12 @@ int		get_next_line(int fd, char **line)
 		return (-1);
 	free(*line);
 	n = get_buffer(fd, line);
-	return (!n && **line != '\0') ? 1 : n;
+	if (!n && **line != '\0')
+		return (1);
+	return (n);
 }
 
-int		get_buffer(int fd, char **line)
+int	get_buffer(int fd, char **line)
 {
 	int			n;
 	static char	*tmp = NULL;
@@ -36,21 +38,24 @@ int		get_buffer(int fd, char **line)
 	if (tmp == NULL)
 		tmp = ft_char_calloc(1);
 	buffer = ft_char_calloc(BUFFER_SIZE + 1);
-	while (!(end = ft_strchr(tmp, '\n')) &&
-	(n = read(fd, buffer, BUFFER_SIZE)) > 0)
+	end = ft_strchr(tmp, '\n');
+	n = read(fd, buffer, BUFFER_SIZE);
+	while (!end && n > 0)
 	{
 		buffer[n] = '\0';
 		joker = ft_strjoin(tmp, buffer);
 		free(tmp);
 		tmp = joker;
 		end = ft_strchr(buffer, '\n');
+		end = ft_strchr(tmp, '\n');
+		n = read(fd, buffer, BUFFER_SIZE);
 	}
 	end = ft_strchr(tmp, '\n');
 	free(buffer);
 	return (n = ft_the_end(&tmp, line, &end));
 }
 
-int		ft_the_end(char **tmp, char **line, char **end)
+int	ft_the_end(char **tmp, char **line, char **end)
 {
 	char		*joker;
 
@@ -97,7 +102,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		return (NULL);
 	if (start > len)
 		len = 0;
-	ptr_ch = (char*)malloc(((int)len + 1) * sizeof(char));
+	ptr_ch = (char *)malloc(((int)len + 1) * sizeof(char));
 	if (ptr_ch == NULL)
 		return (0);
 	if (start > ft_strlen(s))

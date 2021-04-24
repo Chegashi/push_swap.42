@@ -6,7 +6,7 @@
 /*   By: mochegri <mochegri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/28 15:28:53 by mochegri          #+#    #+#             */
-/*   Updated: 2021/03/30 19:42:47 by mochegri         ###   ########.fr       */
+/*   Updated: 2021/04/24 17:33:52 by mochegri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,4 +47,9 @@ void		ft_reverse(t_stack *a)
 	last = a;
 	while (!(last->next->next))
 		last = last->next;
+}
+
+void				ft_free(t_push_swap p_checker)
+{
+	//
 }

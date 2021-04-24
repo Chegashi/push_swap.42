@@ -6,24 +6,24 @@
 /*   By: mochegri <mochegri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/28 15:35:29 by mochegri          #+#    #+#             */
-/*   Updated: 2021/03/28 15:36:58 by mochegri         ###   ########.fr       */
+/*   Updated: 2021/04/24 13:41:11 by mochegri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-char		*ft_strchr(const char *s, int c)
+char	*ft_strchr(const char *s, int c)
 {
-	int len;
+	int	len;
 
 	len = 0;
 	while (s[len] != '\0')
 		if (s[len++] == (char)c)
-			return ((char*)s + len - 1);
+			return ((char *)s + len - 1);
 	return (0);
 }
 
-char		*ft_strjoin(char *s1, char const *s2)
+char	*ft_strjoin(char *s1, char const *s2)
 {
 	int		s1_len;
 	int		s2_len;
@@ -35,9 +35,10 @@ char		*ft_strjoin(char *s1, char const *s2)
 	j = 0;
 	if (!s1)
 		return (NULL);
-	s1_len = ft_strlen((char*)s1);
-	s2_len = ft_strlen((char*)s2);
-	if (!(res = malloc((s1_len + s2_len + 1) * sizeof(char))))
+	s1_len = ft_strlen((char *)s1);
+	s2_len = ft_strlen((char *)s2);
+	res = malloc((s1_len + s2_len + 1) * sizeof(char));
+	if (!res)
 		return (NULL);
 	else
 	{
@@ -51,7 +52,7 @@ char		*ft_strjoin(char *s1, char const *s2)
 	return (res);
 }
 
-size_t		ft_strlen(const char *str)
+size_t	ft_strlen(const char *str)
 {
 	int		i;
 
@@ -61,13 +62,13 @@ size_t		ft_strlen(const char *str)
 	return (i);
 }
 
-char		*ft_char_calloc(size_t cont)
+char	*ft_char_calloc(size_t cont)
 {
 	char	*str;
 	size_t	i;
 
 	i = 0;
-	str = (char*)malloc(cont);
+	str = (char *)malloc(cont);
 	while (i < cont)
 		str[i++] = 0;
 	if (str == 0)

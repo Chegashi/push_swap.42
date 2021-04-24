@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abort <abort@student.42.fr>                +#+  +:+       +#+        */
+/*   By: mochegri <mochegri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/28 15:35:57 by mochegri          #+#    #+#             */
-/*   Updated: 2021/04/16 01:47:16 by abort            ###   ########.fr       */
+/*   Updated: 2021/04/24 13:46:30 by mochegri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_atoi(char *s)
 {
-	long 	nbr;
+	long	nbr;
 	int		signe;
 
 	signe = 1;

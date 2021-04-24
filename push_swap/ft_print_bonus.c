@@ -1,26 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_print_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mochegri <mochegri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/27 15:15:34 by mochegri          #+#    #+#             */
-/*   Updated: 2021/04/24 13:45:15 by mochegri         ###   ########.fr       */
+/*   Created: 2021/04/24 14:51:32 by mochegri          #+#    #+#             */
+/*   Updated: 2021/04/24 16:24:13 by mochegri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include "push_swap.h"
 
-# include <stdlib.h>
-# include <unistd.h>
+void	ft_print_init(t_stack a)
+{
+	t_stack	*iter;
 
-int		ft_atoi(char *s);
-int		ft_isdigit(int c);
-int		ft_strcmp(char *s1, char *s2);
-void	ft_putstr(char *str);
-void	ft_exit(void);
-char	**ft_split(char const *s, char c);
-
-#endif
+	ft_putstr("__________________________________________________\n");
+	ft_putstr("Init a and b:\n");
+	iter = &a;
+	while (iter)
+	{
+		ft_putnbr(iter->data);
+		ft_putstr("\n");
+		iter = iter->next;
+	}
+	ft_putstr("-\t\t\t\t\t-\na\t\t\t\t\tb\n");
+}

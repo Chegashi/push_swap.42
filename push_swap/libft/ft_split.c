@@ -3,19 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abort <abort@student.42.fr>                +#+  +:+       +#+        */
+/*   By: mochegri <mochegri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/12 01:35:36 by mochegri          #+#    #+#             */
-/*   Updated: 2021/04/21 05:42:14 by abort            ###   ########.fr       */
+/*   Updated: 2021/04/24 13:48:36 by mochegri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int		word_nbr(const char *s, char c)
+static int	word_nbr(const char *s, char c)
 {
-	int count;
-	int wrd;
+	int	count;
+	int	wrd;
 
 	count = 0;
 	wrd = 0;
@@ -35,10 +35,10 @@ static int		word_nbr(const char *s, char c)
 	return (count);
 }
 
-static int		len_wrd(const char *s, int i, char c)
+static int	len_wrd(const char *s, int i, char c)
 {
-	int len;
-	int j;
+	int	len;
+	int	j;
 
 	len = 0;
 	j = i;
@@ -51,7 +51,7 @@ static int		len_wrd(const char *s, int i, char c)
 	return (len);
 }
 
-static void		*ft_free_mem(char **wrds, int j)
+static void	*ft_free_mem(char **wrds, int j)
 {
 	while (j--)
 		free(wrds[j]);
@@ -59,11 +59,11 @@ static void		*ft_free_mem(char **wrds, int j)
 	return (NULL);
 }
 
-static char		**ft_in_in(const char *s, char c, char **wrds)
+static char	**ft_in_in(const char *s, char c, char **wrds)
 {
-	int i;
-	int k;
-	int j;
+	int	i;
+	int	k;
+	int	j;
 
 	i = 0;
 	j = 0;
@@ -84,9 +84,9 @@ static char		**ft_in_in(const char *s, char c, char **wrds)
 	return (wrds);
 }
 
-char			**ft_split(char const *s, char c)
+char	**ft_split(char const *s, char c)
 {
-	char **wrds;
+	char	**wrds;
 
 	if (!s)
 		return (NULL);
