@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_checker.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mochegri <mochegri@student.42.fr>          +#+  +:+       +#+        */
+/*   By: abort <abort@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 15:15:28 by mochegri          #+#    #+#             */
-/*   Updated: 2021/04/24 17:04:54 by mochegri         ###   ########.fr       */
+/*   Updated: 2021/04/25 04:42:49 by abort            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	main(int ac, char **av)
 	p_checker.cmd = ft_split(ft_read_cmd(), ' ');
 	ft_exec_cmd(&p_checker);
 	ft_checker(p_checker);
-	ft_free(p_checker);
+	ft_free(&p_checker);
 	return (0);
 }
 
@@ -55,7 +55,7 @@ t_stack	*ft_init_stack(int ac, char **av, int verbos)
 		tmp->next = NULL;
 		ft_check_duplicate(a);
 		if (verbos)
-			ft_print_init(a);
+			ft_print_init(*a);
 	}
 	return (a);
 }
@@ -109,15 +109,15 @@ void	ft_exec_cmd(t_push_swap *p_checker)
 	while (cmd)
 	{
 		if (**cmd == 's')
-			ft_s(&(p_checker->a), &(p_checker->b), *cmd[1]);
-		else if (*cmd == 'p')
-			ft_p(&(p_checker->a), &(p_checker->b), *cmd[1]);
-		else if (*cmd == 'r' && cmd[1] == 'r')
-			ft_rr(&(p_checker->a), &(p_checker->b), *cmd[1]);
+			ft_s(p_checker->a, p_checker->b, *cmd);
+		else if (**cmd == 'p')
+			ft_p(p_checker->a, p_checker->b, *cmd);
+		else if (**cmd == 'r' && *cmd[1] == 'r')
+			ft_rr(p_checker->a, p_checker->b, *cmd);
 		else
-			ft_r(&(p_checker->a), &(p_checker->b), *cmd[1]);
+			ft_r(p_checker->a, p_checker->b, *cmd);
 		if (p_checker->verbos)
-			ft_print_stack(p_checker->a, p_checker->b);
+			ft_print_stack(p_checker->a, p_checker->b, *cmd);
 		else if (p_checker->verbos)
 			ft_print_stack(p_checker->a, p_checker->b, *cmd);
 		cmd++;

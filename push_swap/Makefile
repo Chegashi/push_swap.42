@@ -6,7 +6,7 @@
 #    By: abort <abort@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/27 16:23:40 by mochegri          #+#    #+#              #
-#    Updated: 2021/04/21 05:37:52 by abort            ###   ########.fr        #
+#    Updated: 2021/04/25 04:45:29 by abort            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,10 +16,13 @@ flags = -Wall -Wextra -Werror
 
 SRCS =	libft/libft.c \
 		libft/ft_split.c \
+		libft/ft_putnbr.c \
 		gnl/get_next_line.c \
 		gnl/get_next_line_utils.c \
 		ft_operation_1.c \
-		ft_operation_2.c 
+		ft_operation_2.c \
+		ft_print_bonus.c \
+		ft_operation_3.c
 
 MAND = $(SRCS)
 

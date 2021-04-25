@@ -1,26 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_operation_3.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abort <abort@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/27 15:15:34 by mochegri          #+#    #+#             */
-/*   Updated: 2021/04/25 04:31:12 by abort            ###   ########.fr       */
+/*   Created: 2021/04/25 03:55:56 by abort             #+#    #+#             */
+/*   Updated: 2021/04/25 04:05:21 by abort            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include "push_swap.h"
 
-# include <stdlib.h>
-# include <unistd.h>
+void    ft_free_stack(t_stack *stack)
+{
+    t_stack *tmp;
+    
+    while(stack)
+    {
+        tmp = stack->next;
+        free(stack);
+        stack = tmp;
+    }
+}
 
-int		ft_atoi(char *s);
-int		ft_isdigit(int c);
-int		ft_strcmp(char *s1, char *s2);
-void	ft_putstr(char *str);
-void	ft_exit(void);
-char	**ft_split(char const *s, char c);
-void	ft_putnbr(int nb);
-#endif
+void    ft_free(t_push_swap *p_checker)
+{
+    char *cmd;
+
+    cmd = p_checker->cmd[0];
+    ft_free_stack(p_checker->a);
+    ft_free_stack(p_checker->b);
+    while (cmd)
+    {
+        free(cmd);
+        cmd++;
+    }
+}

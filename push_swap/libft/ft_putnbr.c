@@ -1,26 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abort <abort@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/27 15:15:34 by mochegri          #+#    #+#             */
-/*   Updated: 2021/04/25 04:31:12 by abort            ###   ########.fr       */
+/*   Created: 2021/04/25 04:07:52 by abort             #+#    #+#             */
+/*   Updated: 2021/04/25 04:30:41 by abort            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include "libft.h"
 
-# include <stdlib.h>
-# include <unistd.h>
+void	ft_putchar(char c)
+{
+	write(1, &c, 1);
+}
 
-int		ft_atoi(char *s);
-int		ft_isdigit(int c);
-int		ft_strcmp(char *s1, char *s2);
-void	ft_putstr(char *str);
-void	ft_exit(void);
-char	**ft_split(char const *s, char c);
-void	ft_putnbr(int nb);
-#endif
+void	ft_putnbr(int nb)
+{
+	unsigned int i;
+
+	if (nb < 0)
+	{
+		ft_putchar('-');
+		nb = nb * (-1);
+	}
+	i = nb;
+	if (i > 9)
+	{
+		ft_putnbr(i / 10);
+		ft_putnbr(i % 10);
+	}
+	else
+		ft_putchar(i + '0');
+}
