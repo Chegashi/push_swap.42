@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_print_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mochegri <mochegri@student.42.fr>          +#+  +:+       +#+        */
+/*   By: abort <abort@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/24 14:51:32 by mochegri          #+#    #+#             */
-/*   Updated: 2021/04/26 17:29:27 by mochegri         ###   ########.fr       */
+/*   Updated: 2021/04/26 22:47:18 by abort            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,13 +42,20 @@ void	ft_print_stack(t_stack *a, t_stack *b, char *str)
 	while (iter_a || iter_b)
 	{
 		if (iter_a)
+		{
 			ft_putnbr(iter_a->data);
-		ft_putstr("\t\t\t\t\t");
-		// if (iter_b)
-		// 	ft_putnbr(iter_b->data);
+			iter_a = iter_a->next;
+		}
+		else
+			ft_putstr(" ");
+		ft_putstr("\t\t\t\t\t|");
+		if (iter_b)
+		{
+			ft_putnbr(iter_b->data);
+			iter_b = iter_b->next;
+		}
 		ft_putstr("\n");
-		iter_a = iter_a->next;
-		// iter_b = iter_b->next;
 	}
-	ft_putstr("-\t\t\t\t\t-\na\t\t\t\t\tb\n");
+	// }
+	// ft_putstr("-\t\t\t\t\t-\na\t\t\t\t\tb\n");
 }
