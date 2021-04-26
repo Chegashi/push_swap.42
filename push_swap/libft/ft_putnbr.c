@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abort <abort@student.42.fr>                +#+  +:+       +#+        */
+/*   By: mochegri <mochegri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/25 04:07:52 by abort             #+#    #+#             */
-/*   Updated: 2021/04/25 04:30:41 by abort            ###   ########.fr       */
+/*   Updated: 2021/04/26 16:59:47 by mochegri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	ft_putchar(char c)
 
 void	ft_putnbr(int nb)
 {
-	unsigned int i;
+	unsigned int	i;
 
 	if (nb < 0)
 	{

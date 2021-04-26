@@ -6,7 +6,7 @@
 /*   By: mochegri <mochegri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/16 03:21:51 by abort             #+#    #+#             */
-/*   Updated: 2021/04/24 17:08:59 by mochegri         ###   ########.fr       */
+/*   Updated: 2021/04/26 17:57:06 by mochegri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,20 @@ void    ft_push(t_stack *dest, t_stack *src)
 		tmp->next = dest;
 		dest = tmp;
 	}
+				printf("-----------------\n");
+
+	while (src)
+		{
+			printf("%d\n", src->data);
+			src =  src->next;
+		}
+		printf("-----------------\n");
+			while (dest)
+		{
+			printf("%d\n", dest->data);
+			dest =  dest->next;
+		}
+		printf("-----------------\n");
 }
 
 void	ft_rotate(t_stack *a)

@@ -3,55 +3,42 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abort <abort@student.42.fr>                +#+  +:+       +#+        */
+/*   By: mochegri <mochegri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/12 01:35:36 by mochegri          #+#    #+#             */
-/*   Updated: 2021/04/26 00:56:57 by abort            ###   ########.fr       */
+/*   Updated: 2021/04/26 17:00:28 by mochegri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	word_nbr(const char *s, char c)
+int	word_nbr( char *s, char c)
 {
 	int	count;
-	int	wrd;
 
 	count = 0;
-	wrd = 0;
-	if (!s)
-		return (0);
-	while (*s != '\0')
+	if (*s)
+		count++;
+	while (*s)
 	{
 		if (*s == c)
-			wrd = 0;
-		else if (wrd == 0)
-		{
-			wrd = 1;
 			count++;
-		}
 		s++;
 	}
 	return (count);
 }
 
-static int	len_wrd(const char *s, int i, char c)
+int	len_wrd( char *s, char c)
 {
-	int	len;
-	int	j;
+	char	*len;
 
-	len = 0;
-	j = i;
-	i = 0;
-	while (s[j] != c)
-	{
+	len = s;
+	while (*len && *len != c)
 		len++;
-		j++;
-	}
-	return (len);
+	return (len - s);
 }
 
-static void	*ft_free_mem(char **wrds, int j)
+void	*ft_free_mem(char **wrds, int j)
 {
 	while (j--)
 		free(wrds[j]);
@@ -59,32 +46,31 @@ static void	*ft_free_mem(char **wrds, int j)
 	return (NULL);
 }
 
-static char	**ft_in_in(const char *s, char c, char **wrds)
+char	**ft_fill(char *s, char c, char **wrds)
 {
-	int	i;
-	int	k;
 	int	j;
+	int	k;
+	int	nbr_word;
 
-	i = 0;
-	j = 0;
-	while (s[i] != '\0' && j < word_nbr(s, c))
+	j = -1;
+	nbr_word = word_nbr(s, c);
+	while (*s && ++j < nbr_word)
 	{
+		while (*s == c)
+			s++;
 		k = 0;
-		while (s[i] == c)
-			i++;
-		wrds[j] = malloc(sizeof(char) * len_wrd(s, i, c) + 1);
+		wrds[j] = malloc(sizeof(char) * (len_wrd(s, c) + 1));
 		if (wrds[j] == NULL)
 			return (ft_free_mem(wrds, j));
-		while (s[i] != c)
-			wrds[j][k++] = s[i++];
-		wrds[j][k] = '\0';
-		j++;
+		while (*s && *s != c)
+			wrds[j][k++] = *s++;
+		wrds[j][k] = 0;
 	}
 	wrds[j] = 0;
 	return (wrds);
 }
 
-char	**ft_split(char const *s, char c)
+char	**ft_split(char *s, char c)
 {
 	char	**wrds;
 
@@ -93,5 +79,5 @@ char	**ft_split(char const *s, char c)
 	wrds = malloc(sizeof(char *) * word_nbr(s, c) + 1);
 	if (!wrds)
 		return (NULL);
-	return (ft_in_in(s, c, wrds));
+	return (ft_fill(s, c, wrds));
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_operation_3.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abort <abort@student.42.fr>                +#+  +:+       +#+        */
+/*   By: mochegri <mochegri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/25 03:55:56 by abort             #+#    #+#             */
-/*   Updated: 2021/04/25 23:24:52 by abort            ###   ########.fr       */
+/*   Updated: 2021/04/26 17:15:12 by mochegri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,14 +26,11 @@ void    ft_free_stack(t_stack *stack)
 
 void    ft_free(t_push_swap *p_checker)
 {
-    // char *cmd;
-
-    // cmd = p_checker->cmd[0];
     ft_free_stack(p_checker->a);
     ft_free_stack(p_checker->b);
-    // while (cmd)
-    // {
-    //     free(cmd);
-    //     cmd++;
-    // }
+    while (*(p_checker->cmd))
+    {
+        free(*(p_checker->cmd));
+        p_checker->cmd++;
+    }
 }
