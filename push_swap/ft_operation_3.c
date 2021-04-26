@@ -6,7 +6,7 @@
 /*   By: abort <abort@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/25 03:55:56 by abort             #+#    #+#             */
-/*   Updated: 2021/04/25 04:05:21 by abort            ###   ########.fr       */
+/*   Updated: 2021/04/25 23:24:52 by abort            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,14 +26,14 @@ void    ft_free_stack(t_stack *stack)
 
 void    ft_free(t_push_swap *p_checker)
 {
-    char *cmd;
+    // char *cmd;
 
-    cmd = p_checker->cmd[0];
+    // cmd = p_checker->cmd[0];
     ft_free_stack(p_checker->a);
     ft_free_stack(p_checker->b);
-    while (cmd)
-    {
-        free(cmd);
-        cmd++;
-    }
+    // while (cmd)
+    // {
+    //     free(cmd);
+    //     cmd++;
+    // }
 }

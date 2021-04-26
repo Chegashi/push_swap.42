@@ -6,7 +6,7 @@
 /*   By: abort <abort@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 15:15:28 by mochegri          #+#    #+#             */
-/*   Updated: 2021/04/25 04:42:49 by abort            ###   ########.fr       */
+/*   Updated: 2021/04/26 14:54:29 by abort            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,23 +18,24 @@ int	main(int ac, char **av)
 
 	av++;
 	ac--;
-	p_checker.color = !ft_strcmp("-c", av[1]);
-	p_checker.verbos = !ft_strcmp("-v", av[1]);
+	p_checker.color = !ft_strcmp("-c", *av);
+	p_checker.verbos = !ft_strcmp("-v", *av);
 	if (p_checker.color || p_checker.verbos)
 	{
 		p_checker.verbos = 1;
 		av++;
+		ac--;
 	}
-	p_checker.a = ft_init_stack(ac, av, p_checker.verbos);
+	p_checker.a = ft_init_stack(ac, av);
 	p_checker.b = NULL;
-	p_checker.cmd = ft_split(ft_read_cmd(), ' ');
-	ft_exec_cmd(&p_checker);
-	ft_checker(p_checker);
+	//p_checker.cmd = ft_split(ft_read_cmd(), ' ');
+	// ft_exec_cmd(&p_checker);
+	// ft_checker(p_checker);
 	ft_free(&p_checker);
 	return (0);
 }
 
-t_stack	*ft_init_stack(int ac, char **av, int verbos)
+t_stack	*ft_init_stack(int ac, char **av)
 {
 	int			i;
 	t_stack		*a;
@@ -44,18 +45,20 @@ t_stack	*ft_init_stack(int ac, char **av, int verbos)
 	if (ac)
 	{
 		tmp = (t_stack *)malloc(sizeof(t_stack));
+		if (!tmp)
+			return (NULL);
 		a = tmp;
 		a->data = ft_atoi(av[i]);
 		while (++i < ac)
 		{
 			tmp->next = (t_stack *)malloc(sizeof(t_stack));
+			if (!tmp->next)
+				return (NULL);
 			tmp = tmp->next;
 			tmp->data = ft_atoi(av[i]);
 		}
 		tmp->next = NULL;
 		ft_check_duplicate(a);
-		if (verbos)
-			ft_print_init(*a);
 	}
 	return (a);
 }
