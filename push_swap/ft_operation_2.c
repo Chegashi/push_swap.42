@@ -3,27 +3,27 @@
 /*                                                        :::      ::::::::   */
 /*   ft_operation_2.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abort <abort@student.42.fr>                +#+  +:+       +#+        */
+/*   By: mochegri <mochegri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/16 03:21:51 by abort             #+#    #+#             */
-/*   Updated: 2021/04/26 23:27:47 by abort            ###   ########.fr       */
+/*   Updated: 2021/04/27 08:29:51 by mochegri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void    ft_swap(t_stack *a)
+void	ft_swap(t_stack *a)
 {
-    int tmp;
+	int	tmp;
 
 	tmp = a->data;
 	a->data = a->next->data;
 	a->next->data = tmp;
 }
 
-void    ft_push(t_stack **dest, t_stack **src)
+void	ft_push(t_stack **dest, t_stack **src)
 {
-    t_stack *tmp;
+	t_stack	*tmp;
 
 	if (src)
 	{
@@ -62,7 +62,7 @@ void	ft_reverse(t_stack **a)
 	*a = last;
 }
 
-void ft_checker(t_push_swap p_s)
+void	ft_checker(t_push_swap p_s)
 {
 	t_stack	*tmp;
 
@@ -75,7 +75,7 @@ void ft_checker(t_push_swap p_s)
 	while (tmp)
 	{
 		if (tmp->next && tmp->data > tmp->next->data)
-		{	printf("{{%d---> %d}}\n",tmp->data , tmp->next->data);
+		{
 			ft_putstr("KO\n");
 			ft_exit();
 		}

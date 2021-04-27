@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_checker.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abort <abort@student.42.fr>                +#+  +:+       +#+        */
+/*   By: mochegri <mochegri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 15:15:28 by mochegri          #+#    #+#             */
-/*   Updated: 2021/04/26 23:25:29 by abort            ###   ########.fr       */
+/*   Updated: 2021/04/27 08:26:27 by mochegri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ t_stack	*ft_init_stack(int ac, char **av)
 	t_stack		*tmp;
 
 	i = 0;
-	a =  NULL;
+	a = NULL;
 	if (ac)
 	{
 		tmp = (t_stack *)malloc(sizeof(t_stack));
@@ -129,5 +129,7 @@ void	ft_exec_cmd(t_push_swap *p_checker)
 		// else if (p_checker->verbos)
 		// 	ft_print_stack(p_checker->a, p_checker->b, *cmd);
 		cmd++;
+		if (p_checker->verbos)
+			write(1, "\n\n", 1);
 	}
 }

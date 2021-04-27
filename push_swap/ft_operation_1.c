@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_operation_1.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abort <abort@student.42.fr>                +#+  +:+       +#+        */
+/*   By: mochegri <mochegri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 14:41:19 by mochegri          #+#    #+#             */
-/*   Updated: 2021/04/26 23:35:30 by abort            ###   ########.fr       */
+/*   Updated: 2021/04/27 08:28:13 by mochegri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 void	ft_check_oper(char *str)
 {
-	if (ft_strcmp("sa", str) && ft_strcmp("sb", str) &&
-		ft_strcmp("ss", str) && ft_strcmp("pa", str) &&
-		ft_strcmp("pb", str) && ft_strcmp("ra", str) &&
-		ft_strcmp("rb", str) && ft_strcmp("rr", str) &&
-		ft_strcmp("rra", str) && ft_strcmp("rrb", str) &&
-		ft_strcmp("rrr", str))
+	if (ft_strcmp("sa", str) && ft_strcmp("sb", str)
+		&& ft_strcmp("ss", str) && ft_strcmp("pa", str)
+		&& ft_strcmp("pb", str) && ft_strcmp("ra", str)
+		&& ft_strcmp("rb", str) && ft_strcmp("rr", str)
+		&& ft_strcmp("rra", str) && ft_strcmp("rrb", str)
+		&& ft_strcmp("rrr", str))
 		ft_exit();
 }
 

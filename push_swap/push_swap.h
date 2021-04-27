@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abort <abort@student.42.fr>                +#+  +:+       +#+        */
+/*   By: mochegri <mochegri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 15:15:34 by mochegri          #+#    #+#             */
-/*   Updated: 2021/04/26 22:24:21 by abort            ###   ########.fr       */
+/*   Updated: 2021/04/27 08:36:13 by mochegri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,5 +56,6 @@ void				ft_print_init(t_stack a);
 void				ft_print_stack(t_stack *a, t_stack *b, char *str);;
 void				ft_free_stack(t_stack *stack);
 t_stack				*ft_init_stack(int ac, char **av);
-
+void				ft_putchar_coef(char c, int nbr);
+void				print_header(char *str);
 #endif
