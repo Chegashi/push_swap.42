@@ -6,7 +6,7 @@
 /*   By: mochegri <mochegri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/28 15:35:57 by mochegri          #+#    #+#             */
-/*   Updated: 2021/04/24 13:46:30 by mochegri         ###   ########.fr       */
+/*   Updated: 2021/04/27 10:08:21 by mochegri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int	ft_isdigit(int c)
 
 void	ft_exit(void)
 {
-	ft_putstr("Error\n");
+	write(2, "Error\n", 6);
 	exit(EXIT_SUCCESS);
 }
 
