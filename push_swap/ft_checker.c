@@ -6,7 +6,7 @@
 /*   By: mochegri <mochegri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 15:15:28 by mochegri          #+#    #+#             */
-/*   Updated: 2021/04/27 08:26:27 by mochegri         ###   ########.fr       */
+/*   Updated: 2021/04/29 17:29:19 by mochegri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,54 +33,6 @@ int	main(int ac, char **av)
 	ft_checker(p_checker);
 	ft_free(&p_checker);
 	return (0);
-}
-
-t_stack	*ft_init_stack(int ac, char **av)
-{
-	int			i;
-	t_stack		*a;
-	t_stack		*tmp;
-
-	i = 0;
-	a = NULL;
-	if (ac)
-	{
-		tmp = (t_stack *)malloc(sizeof(t_stack));
-		if (!tmp)
-			return (NULL);
-		a = tmp;
-		a->data = ft_atoi(av[i]);
-		while (++i < ac)
-		{
-			tmp->next = (t_stack *)malloc(sizeof(t_stack));
-			if (!tmp->next)
-				return (NULL);
-			tmp = tmp->next;
-			tmp->data = ft_atoi(av[i]);
-		}
-		tmp->next = NULL;
-		ft_check_duplicate(a);
-	}
-	return (a);
-}
-
-void	ft_check_duplicate(t_stack *a)
-{
-	t_stack	*tmp;
-	t_stack	*iter;
-
-	tmp = a;
-	while (tmp)
-	{
-		iter = a;
-		while (iter)
-		{
-			if (tmp->data == iter->data && tmp != iter)
-				ft_exit();
-			iter = iter->next;
-		}
-		tmp = tmp->next;
-	}
 }
 
 char	*ft_read_cmd(void)

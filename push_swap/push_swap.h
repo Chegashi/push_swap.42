@@ -6,7 +6,7 @@
 /*   By: mochegri <mochegri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 15:15:34 by mochegri          #+#    #+#             */
-/*   Updated: 2021/04/27 08:36:13 by mochegri         ###   ########.fr       */
+/*   Updated: 2021/04/29 17:49:31 by mochegri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 typedef struct s_stack
 {
 	int				data;
+	int				rank;
 	struct s_stack	*next;
 }	t_stack;
 
@@ -29,12 +30,11 @@ typedef struct s_push_swap
 {
 	t_stack		*a;
 	t_stack		*b;
-	int			len_a;
-	int			len_b;
 	int			color;
 	int			verbos;
 	char		**cmd;
 }	t_push_swap;
+
 
 int					ft_operation(t_stack *a, t_stack *b, char *oper);
 void				ft_swap(t_stack *a);
@@ -58,4 +58,6 @@ void				ft_free_stack(t_stack *stack);
 t_stack				*ft_init_stack(int ac, char **av);
 void				ft_putchar_coef(char c, int nbr);
 void				print_header(char *str);
+int				ft_get_the_midlle(t_stack *a);
+void				ft_init_rank(t_stack *a);
 #endif

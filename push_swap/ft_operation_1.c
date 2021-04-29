@@ -6,7 +6,7 @@
 /*   By: mochegri <mochegri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 14:41:19 by mochegri          #+#    #+#             */
-/*   Updated: 2021/04/27 08:28:13 by mochegri         ###   ########.fr       */
+/*   Updated: 2021/04/29 17:28:20 by mochegri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,4 +60,33 @@ void	ft_rr(t_stack **a, t_stack **b, char *str)
 		ft_reverse(a);
 		ft_reverse(b);
 	}
+}
+
+t_stack	*ft_init_stack(int ac, char **av)
+{
+	int			i;
+	t_stack		*a;
+	t_stack		*tmp;
+
+	i = 0;
+	a = NULL;
+	if (ac)
+	{
+		tmp = (t_stack *)malloc(sizeof(t_stack));
+		if (!tmp)
+			return (NULL);
+		a = tmp;
+		a->data = ft_atoi(av[i]);
+		while (++i < ac)
+		{
+			tmp->next = (t_stack *)malloc(sizeof(t_stack));
+			if (!tmp->next)
+				return (NULL);
+			tmp = tmp->next;
+			tmp->data = ft_atoi(av[i]);
+		}
+		tmp->next = NULL;
+		ft_check_duplicate(a);
+	}
+	return (a);
 }
