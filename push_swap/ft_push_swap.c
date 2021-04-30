@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_push_swap.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mochegri <mochegri@student.42.fr>          +#+  +:+       +#+        */
+/*   By: abort <abort@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/14 15:46:29 by mochegri          #+#    #+#             */
-/*   Updated: 2021/04/29 17:49:26 by mochegri         ###   ########.fr       */
+/*   Updated: 2021/04/30 01:22:49 by abort            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,34 @@ int main(int ac, char **av)
 	p_swap.b = NULL;
 	ft_init_rank(p_swap.a);
 	pivot = ft_get_the_midlle(p_swap.a);
-	ft_free(&p_swap);
+	printf("%d\n", pivot);
+	ft_free_stack(p_swap.a);
+	printf("ttt\n");
     return (0);
+}
+
+void	ft_sort_integer_table(int *tab, int size)
+{
+	int i;
+	int j;
+	int tmp;
+
+	i = size - 1;
+	while (i >= 0)
+	{
+		j = 0;
+		while (j <= i - 1)
+		{
+			if (tab[j] > tab[j + 1])
+			{
+				tmp = tab[j + 1];
+				tab[j + 1] = tab[j];
+				tab[j] = tmp;
+			}
+			j++;
+		}
+		i--;
+	}
 }
 
 void	ft_init_rank(t_stack *a)
@@ -45,20 +71,25 @@ int	ft_get_the_midlle(t_stack *a)
 	int	*array;
 	int i;
 	int pivot;
+	t_stack *tmp;
 
 	len = 0;
-	while (a)
+	tmp = a;
+	i = 0;
+	while (tmp)
 	{
 		len++;
-		a = a->next;
+		tmp = tmp->next;
 	}
 	array =  (int *)malloc(sizeof(int) * len);
+	tmp = a;
 	while (a)
 	{
 		array[i++] = a->data;
 		a = a->next;
 	}
-		pivot = array[len / 2 - 1];
+	ft_sort_integer_table(array, len);
+	pivot = array[len / 2];
 	free(array);
 	return (pivot);
 }
