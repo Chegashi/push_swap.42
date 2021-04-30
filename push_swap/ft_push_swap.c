@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_push_swap.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abort <abort@student.42.fr>                +#+  +:+       +#+        */
+/*   By: mochegri <mochegri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/14 15:46:29 by mochegri          #+#    #+#             */
-/*   Updated: 2021/04/30 01:22:49 by abort            ###   ########.fr       */
+/*   Updated: 2021/04/30 17:47:17 by mochegri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,8 @@ int main(int ac, char **av)
 	p_swap.b = NULL;
 	ft_init_rank(p_swap.a);
 	pivot = ft_get_the_midlle(p_swap.a);
-	printf("%d\n", pivot);
+	
 	ft_free_stack(p_swap.a);
-	printf("ttt\n");
     return (0);
 }
 
@@ -73,23 +72,35 @@ int	ft_get_the_midlle(t_stack *a)
 	int pivot;
 	t_stack *tmp;
 
-	len = 0;
 	tmp = a;
 	i = 0;
-	while (tmp)
-	{
-		len++;
-		tmp = tmp->next;
-	}
+	len = ft_len_stack(a);
 	array =  (int *)malloc(sizeof(int) * len);
-	tmp = a;
 	while (a)
 	{
-		array[i++] = a->data;
-		a = a->next;
+		array[i++] = tmp->data;
+		tmp = tmp->next;
 	}
 	ft_sort_integer_table(array, len);
 	pivot = array[len / 2];
 	free(array);
 	return (pivot);
+}
+
+void	ft_shanking(t_stack **a, t_stack **b)
+{
+	int shank;
+	int pivot;
+	t_stack *tmp;
+
+	shank = 0;
+	while (ft_len_stack(*a) > 2 || !ft_is_sorted(*a))
+	{
+		while (tmp)
+		{
+			/* code */
+		}
+		
+	}
+	
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abort <abort@student.42.fr>                +#+  +:+       +#+        */
+/*   By: mochegri <mochegri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 15:15:34 by mochegri          #+#    #+#             */
-/*   Updated: 2021/04/30 01:22:58 by abort            ###   ########.fr       */
+/*   Updated: 2021/04/30 17:44:20 by mochegri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,4 +61,6 @@ void				print_header(char *str);
 int					ft_get_the_midlle(t_stack *a);
 void				ft_init_rank(t_stack *a);
 void				ft_sort_integer_table(int *tab, int size);
+int					ft_is_sorted(t_stack *a);
+int					ft_len_stack(t_stack *a);
 #endif

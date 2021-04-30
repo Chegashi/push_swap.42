@@ -6,7 +6,7 @@
 /*   By: mochegri <mochegri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 15:15:28 by mochegri          #+#    #+#             */
-/*   Updated: 2021/04/29 17:29:19 by mochegri         ###   ########.fr       */
+/*   Updated: 2021/04/30 17:34:26 by mochegri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,3 +85,14 @@ void	ft_exec_cmd(t_push_swap *p_checker)
 			write(1, "\n\n", 1);
 	}
 }
+
+void	ft_checker(t_push_swap p_s)
+{
+	if (p_s.b || ft_is_sorted(p_s.a))
+	{
+		ft_putstr("KO\n");
+		ft_exit();
+	}
+	ft_putstr("OK\n");
+}
+

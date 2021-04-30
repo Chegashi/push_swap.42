@@ -6,7 +6,7 @@
 /*   By: mochegri <mochegri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/25 03:55:56 by abort             #+#    #+#             */
-/*   Updated: 2021/04/29 17:37:19 by mochegri         ###   ########.fr       */
+/*   Updated: 2021/04/30 17:36:18 by mochegri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,4 +52,17 @@ void	ft_check_duplicate(t_stack *a)
 		}
 		tmp = tmp->next;
 	}
+}
+
+int	ft_len_stack(t_stack *a)
+{
+	int len;
+
+	len = 0;
+	while (a)
+	{
+		len++;
+		a = a->next;
+	}
+	return (len);
 }
