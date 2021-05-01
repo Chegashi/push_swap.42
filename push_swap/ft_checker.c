@@ -6,7 +6,7 @@
 /*   By: mochegri <mochegri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 15:15:28 by mochegri          #+#    #+#             */
-/*   Updated: 2021/04/30 17:34:26 by mochegri         ###   ########.fr       */
+/*   Updated: 2021/05/01 16:45:05 by mochegri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,4 +95,3 @@ void	ft_checker(t_push_swap p_s)
 	}
 	ft_putstr("OK\n");
 }
-

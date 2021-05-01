@@ -6,7 +6,7 @@
 /*   By: mochegri <mochegri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/16 03:21:51 by abort             #+#    #+#             */
-/*   Updated: 2021/04/30 17:03:51 by mochegri         ###   ########.fr       */
+/*   Updated: 2021/05/01 17:44:38 by mochegri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,19 @@ void	ft_swap(t_stack *a)
 {
 	int	tmp;
 
-	tmp = a->data;
-	a->data = a->next->data;
-	a->next->data = tmp;
+	if (ft_len_stack(a) > 1)
+	{
+		tmp = a->data;
+		a->data = a->next->data;
+		a->next->data = tmp;
+	}
 }
 
 void	ft_push(t_stack **dest, t_stack **src)
 {
 	t_stack	*tmp;
 
-	if (src)
+	if (*src)
 	{
 		tmp = *src;
 		*src = (*src)->next;

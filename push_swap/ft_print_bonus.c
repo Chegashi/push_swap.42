@@ -6,7 +6,7 @@
 /*   By: mochegri <mochegri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/24 14:51:32 by mochegri          #+#    #+#             */
-/*   Updated: 2021/04/27 08:35:57 by mochegri         ###   ########.fr       */
+/*   Updated: 2021/05/01 17:47:28 by mochegri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,15 +46,15 @@ void	ft_print_stack(t_stack *a, t_stack *b, char *str)
 	iter_b = b;
 	while (iter_a || iter_b)
 	{
+		write(1, "|", 1);
 		if (iter_a)
 		{
-			write(1, "|", 1);
 			ft_putnbr(iter_a->data);
 			iter_a = iter_a->next;
-			ft_putstr("\t\t\t\t\t|");
 		}
 		else
 			ft_putstr(" ");
+		ft_putstr("\t\t\t\t\t|");
 		if (iter_b)
 		{
 			ft_putnbr(iter_b->data);

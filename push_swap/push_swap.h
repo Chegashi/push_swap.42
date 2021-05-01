@@ -6,7 +6,7 @@
 /*   By: mochegri <mochegri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 15:15:34 by mochegri          #+#    #+#             */
-/*   Updated: 2021/04/30 17:44:20 by mochegri         ###   ########.fr       */
+/*   Updated: 2021/05/01 16:50:12 by mochegri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ typedef struct s_push_swap
 	char		**cmd;
 }	t_push_swap;
 
-
 int					ft_operation(t_stack *a, t_stack *b, char *oper);
 void				ft_swap(t_stack *a);
 void				ft_push(t_stack **a, t_stack **b);
@@ -63,4 +62,5 @@ void				ft_init_rank(t_stack *a);
 void				ft_sort_integer_table(int *tab, int size);
 int					ft_is_sorted(t_stack *a);
 int					ft_len_stack(t_stack *a);
+void				ft_shanking(t_stack **a, t_stack **b);
 #endif

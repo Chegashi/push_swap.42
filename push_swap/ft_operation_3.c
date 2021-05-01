@@ -6,7 +6,7 @@
 /*   By: mochegri <mochegri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/25 03:55:56 by abort             #+#    #+#             */
-/*   Updated: 2021/04/30 17:36:18 by mochegri         ###   ########.fr       */
+/*   Updated: 2021/05/01 16:45:49 by mochegri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ void	ft_check_duplicate(t_stack *a)
 
 int	ft_len_stack(t_stack *a)
 {
-	int len;
+	int	len;
 
 	len = 0;
 	while (a)
