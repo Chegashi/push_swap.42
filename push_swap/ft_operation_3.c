@@ -28,11 +28,11 @@ void	ft_free(t_push_swap *p_checker)
 {
 	ft_free_stack(p_checker->a);
 	ft_free_stack(p_checker->b);
-	while (*(p_checker->cmd))
-	{
-		free(*(p_checker->cmd));
-		p_checker->cmd++;
-	}
+	// while (*(p_checker->cmd))
+	// {
+	// 	free(*(p_checker->cmd));
+	// 	p_checker->cmd++;
+	// }
 }
 
 void	ft_check_duplicate(t_stack *a)

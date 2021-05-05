@@ -14,7 +14,6 @@
 
 int main(int ac, char **av)
 {
-	int				pivot;
 	t_push_swap		p_swap;
 
 	if (ac > 2)
@@ -24,7 +23,6 @@ int main(int ac, char **av)
 		p_swap.a = ft_init_stack(ac, av);
 		p_swap.b = NULL;
 		ft_init_rank(p_swap.a);
-		pivot = ft_get_the_midlle(p_swap.a);
 		ft_shanking(&(p_swap.a), &(p_swap.b));
 		ft_free_stack(p_swap.a);
 	}
@@ -96,10 +94,8 @@ void	ft_shanking(t_stack **a, t_stack **b)
 	int shank;
 	int  pivot;
 	int	len_stack;
-	t_stack *tmp;
 
 	shank = -1;
-	tmp = *a; 
 	while (ft_len_stack(*a) > 2)
 	{
 		shank++;
@@ -121,5 +117,8 @@ void	ft_shanking(t_stack **a, t_stack **b)
 		}
 	}
 	if (!ft_is_sorted(*a))
+	{
 		ft_swap(*a);
+		write(1, "sa\n", 3);
+	}
 }

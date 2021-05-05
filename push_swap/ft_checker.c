@@ -18,33 +18,39 @@ int	main(int ac, char **av)
 
 	av++;
 	ac--;
-	p_checker.color = !ft_strcmp("-c", *av);
-	p_checker.verbos = !ft_strcmp("-v", *av);
-	if (p_checker.color || p_checker.verbos)
+	if (ac)
 	{
-		p_checker.verbos = 1;
-		av++;
-		ac--;
+		p_checker.color = !ft_strcmp("-c", *av);
+		p_checker.verbos = !ft_strcmp("-v", *av);
+		if (p_checker.color || p_checker.verbos)
+		{
+			p_checker.verbos = 1;
+			av++;
+			ac--;
+		}
+		p_checker.a = ft_init_stack(ac, av);
+		p_checker.b = NULL;
+		p_checker.cmd = ft_split(ft_read_cmd(), ' ');
+		ft_exec_cmd(&p_checker);
+		ft_checker(p_checker);
+		ft_free(&p_checker);
 	}
-	p_checker.a = ft_init_stack(ac, av);
-	p_checker.b = NULL;
-	p_checker.cmd = ft_split(ft_read_cmd(), ' ');
-	ft_exec_cmd(&p_checker);
-	ft_checker(p_checker);
-	ft_free(&p_checker);
 	return (0);
 }
 
 char	*ft_read_cmd(void)
 {
-	char	*cmd;
+	char	cmd[6];
 	char	*cmds;
 	char	*tmp;
 
-	cmd = (char *)malloc(sizeof(char));
+	*cmd = 0;
 	cmds = ft_strdup("");
-	while (get_next_line(0, &cmd))
-	{	
+	while (1)
+	{
+		cmd[read(0, cmd, 5) - 1] = 0;
+		if (!(*cmd))
+			break;
 		ft_check_oper(cmd);
 		tmp = ft_strjoin(cmds, cmd);
 		free(cmds);
@@ -53,7 +59,6 @@ char	*ft_read_cmd(void)
 		free(cmds);
 		cmds = tmp;
 	}
-	free(cmd);
 	return (cmds);
 }
 
@@ -88,9 +93,9 @@ void	ft_exec_cmd(t_push_swap *p_checker)
 
 void	ft_checker(t_push_swap p_s)
 {
-	if (p_s.b || ft_is_sorted(p_s.a))
+	if (p_s.b || !ft_is_sorted(p_s.a))
 	{
-		ft_putstr("KO\n");
+		ft_putstr("KO[not sorted]\n");
 		ft_exit();
 	}
 	ft_putstr("OK\n");

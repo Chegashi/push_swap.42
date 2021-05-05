@@ -23,4 +23,7 @@ void	ft_putstr(char *str);
 void	ft_exit(void);
 char	**ft_split(char *s, char c);
 void	ft_putnbr(int nb);
+char	*ft_strjoin(char *s1, char const *s2);
+size_t	ft_strlen(const char *str);
+char	*ft_strdup(const char *src);
 #endif

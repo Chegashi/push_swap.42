@@ -17,7 +17,6 @@
 # include <unistd.h>
 # include <stdio.h>
 # include "libft/libft.h"
-# include "gnl/get_next_line.h"
 
 typedef struct s_stack
 {

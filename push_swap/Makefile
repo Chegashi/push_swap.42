@@ -12,13 +12,11 @@
 
 NAME = push_swap
 
-flags = -Wall -Wextra -Werror -g -fsanitize=address
+flags = -Wall -Wextra -Werror
 
 SRCS =	libft/libft.c \
 		libft/ft_split.c \
 		libft/ft_putnbr.c \
-		gnl/get_next_line.c \
-		gnl/get_next_line_utils.c \
 		ft_operation_1.c \
 		ft_operation_2.c \
 		ft_print_bonus.c \
@@ -48,7 +46,6 @@ fclean:	clean
 re:		fclean all
 
 checker: re
-	
 
 # push_swap : re
 # 	./push_swap
