@@ -6,13 +6,13 @@
 #    By: mochegri <mochegri@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/27 16:23:40 by mochegri          #+#    #+#              #
-#    Updated: 2021/04/27 10:11:05 by mochegri         ###   ########.fr        #
+#    Updated: 2021/05/06 08:01:29 by mochegri         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 
-flags = -Wall -Wextra -Werror
+flags = -Wall -Wextra -Werror -g
 
 SRCS =	libft/libft.c \
 		libft/ft_split.c \

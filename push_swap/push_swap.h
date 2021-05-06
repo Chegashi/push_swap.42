@@ -6,7 +6,7 @@
 /*   By: mochegri <mochegri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 15:15:34 by mochegri          #+#    #+#             */
-/*   Updated: 2021/05/01 16:50:12 by mochegri         ###   ########.fr       */
+/*   Updated: 2021/05/06 09:33:27 by mochegri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 typedef struct s_stack
 {
 	int				data;
-	int				rank;
+	int				shunk;
 	struct s_stack	*next;
 }	t_stack;
 
@@ -57,7 +57,7 @@ t_stack				*ft_init_stack(int ac, char **av);
 void				ft_putchar_coef(char c, int nbr);
 void				print_header(char *str);
 int					ft_get_the_midlle(t_stack *a);
-void				ft_init_rank(t_stack *a);
+void				ft_init_shunk(t_stack *a);
 void				ft_sort_integer_table(int *tab, int size);
 int					ft_is_sorted(t_stack *a);
 int					ft_len_stack(t_stack *a);
@@ -65,4 +65,7 @@ void				ft_quick_sort(t_stack **a, t_stack **b);
 void	ft_shanking(t_stack **a, t_stack **b);
 int	ft_chr_less_pivot(t_stack *a, int pivot);
 int	ft_bottum_stack(t_stack *a);
+void	ft_unshanking(t_stack **a, t_stack **b);
+int	ft_nbr_shunk(t_stack *a, int shunk);
+int	ft_get_max(t_stack *b, int shunk);
 #endif
