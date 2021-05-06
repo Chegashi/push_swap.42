@@ -23,7 +23,20 @@ int main(int ac, char **av)
 		p_swap.a = ft_init_stack(ac, av);
 		p_swap.b = NULL;
 		ft_init_rank(p_swap.a);
-		ft_shanking(&(p_swap.a), &(p_swap.b));
+		ft_quick_sort(&(p_swap.a), &(p_swap.b));
+		// t_stack *t;
+		// t = p_swap.a;
+		// while (t)
+		// {
+		// 	printf("[%d]\n", t->rank);
+		// 	t = t->next;
+		// }
+		// t = p_swap.b;
+		// while (t)
+		// {
+		// 	printf("{%d}\n", t->rank);
+		// 	t = t->next;
+		// }
 		ft_free_stack(p_swap.a);
 	}
     return (0);
@@ -89,25 +102,39 @@ int	ft_get_the_midlle(t_stack *a)
 	return (pivot);
 }
 
+void	ft_quick_sort(t_stack **a, t_stack **b)
+{
+	if (ft_is_sorted(*a) && !(*b))
+		return;
+	ft_shanking(a, b);
+}
+
 void	ft_shanking(t_stack **a, t_stack **b)
 {
 	int shank;
 	int  pivot;
-	int	len_stack;
+	// int	len_stack;
 
-	shank = -1;
+	shank = 0;
 	while (ft_len_stack(*a) > 2)
 	{
 		shank++;
-		len_stack = ft_len_stack(*a);
+		// len_stack = ft_len_stack(*a);
 		pivot = ft_get_the_midlle(*a);
-		while (len_stack--)
+		
+		while (ft_chr_less_pivot(*a, pivot))
 		{
 			if ((*a)->data < pivot)
 			{
 				ft_push(b, a);
 				write(1, "pb\n", 3);
 				(*b)->rank = shank;
+			}
+			else if (ft_bottum_stack(*a) < pivot)
+			{
+				ft_reverse(a);
+				ft_push(b, a);
+				write(1, "rra\npb\n", 7);
 			}
 			else
 			{
@@ -121,4 +148,29 @@ void	ft_shanking(t_stack **a, t_stack **b)
 		ft_swap(*a);
 		write(1, "sa\n", 3);
 	}
+}
+
+int	ft_chr_less_pivot(t_stack *a, int pivot)
+{
+	t_stack *sp;
+
+	sp = a;
+	while (sp)
+	{
+		if (sp->data < pivot)
+			return (1);
+		sp = sp->next;
+	}
+	return (0);
+}
+
+int	ft_bottum_stack(t_stack *a)
+{
+	t_stack	*tmp;
+
+	tmp = a;
+	while (tmp->next)
+		tmp = tmp->next;
+	return (tmp->data);
+
 }

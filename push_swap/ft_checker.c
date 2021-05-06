@@ -17,8 +17,7 @@ int	main(int ac, char **av)
 	t_push_swap		p_checker;
 
 	av++;
-	ac--;
-	if (ac)
+	if (--ac)
 	{
 		p_checker.color = !ft_strcmp("-c", *av);
 		p_checker.verbos = !ft_strcmp("-v", *av);
@@ -28,6 +27,9 @@ int	main(int ac, char **av)
 			av++;
 			ac--;
 		}
+	}
+	if(ac)
+	{
 		p_checker.a = ft_init_stack(ac, av);
 		p_checker.b = NULL;
 		p_checker.cmd = ft_split(ft_read_cmd(), ' ');
@@ -40,7 +42,7 @@ int	main(int ac, char **av)
 
 char	*ft_read_cmd(void)
 {
-	char	cmd[6];
+	char	cmd[10];
 	char	*cmds;
 	char	*tmp;
 

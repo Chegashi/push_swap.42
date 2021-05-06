@@ -42,13 +42,16 @@ void	ft_rotate(t_stack **a)
 	t_stack	*tmp;
 	t_stack	*head;
 
-	head = *a;
-	*a = (*a)->next;
-	tmp = head;
-	while (tmp->next)
-		tmp = tmp->next;
-	tmp->next = head;
-	tmp->next->next = NULL;
+	if (*a && (*a)->next)
+	{
+		head = *a;
+		*a = (*a)->next;
+		tmp = head;
+		while (tmp->next)
+			tmp = tmp->next;
+		tmp->next = head;
+		tmp->next->next = NULL;
+	}
 }
 
 void	ft_reverse(t_stack **a)
@@ -56,13 +59,16 @@ void	ft_reverse(t_stack **a)
 	t_stack	*last;
 	t_stack	*tmp;
 
-	tmp = *a;
-	while (tmp->next->next)
-		tmp = tmp->next;
-	last = tmp->next;
-	tmp->next = NULL;
-	last->next = *a;
-	*a = last;
+	if (*a && (*a)->next)
+	{
+		tmp = *a;
+		while (tmp->next->next)
+			tmp = tmp->next;
+		last = tmp->next;
+		tmp->next = NULL;
+		last->next = *a;
+		*a = last;
+	}
 }
 
 int	ft_is_sorted(t_stack *a)
