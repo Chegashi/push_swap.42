@@ -6,7 +6,7 @@
 /*   By: mochegri <mochegri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 15:15:28 by mochegri          #+#    #+#             */
-/*   Updated: 2021/05/01 16:45:05 by mochegri         ###   ########.fr       */
+/*   Updated: 2021/05/13 17:19:44 by mochegri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ int	main(int ac, char **av)
 	if(ac)
 	{
 		p_checker.a = ft_init_stack(ac, av);
+		ft_init_shunk(p_checker.a);
 		p_checker.b = NULL;
 		p_checker.cmd = ft_split(ft_read_cmd(), ' ');
 		ft_exec_cmd(&p_checker);
@@ -76,9 +77,9 @@ void	ft_exec_cmd(t_push_swap *p_checker)
 		if (**cmd == 's')
 			ft_s(p_checker->a, p_checker->b, *cmd);
 		else if (**cmd == 'p' && *((*cmd) + 1) == 'a')
-			ft_push(&(p_checker->a), &(p_checker->b));
+			ft_push(&(p_checker->a), &(p_checker->b), 0);
 		else if (**cmd == 'p' && *((*cmd) + 1) == 'b')
-			ft_push(&(p_checker->b), &(p_checker->a));
+			ft_push(&(p_checker->b), &(p_checker->a), 0);
 		else if (**cmd == 'r' && *((*cmd) + 1) == 'r' && *((*cmd) + 2))
 			ft_rr(&(p_checker->a), &(p_checker->b), *cmd);
 		else

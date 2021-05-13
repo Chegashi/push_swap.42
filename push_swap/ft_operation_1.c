@@ -6,7 +6,7 @@
 /*   By: mochegri <mochegri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 14:41:19 by mochegri          #+#    #+#             */
-/*   Updated: 2021/04/29 17:28:20 by mochegri         ###   ########.fr       */
+/*   Updated: 2021/05/13 12:34:50 by mochegri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,39 +26,39 @@ void	ft_check_oper(char *str)
 void	ft_s(t_stack *a, t_stack *b, char *str)
 {
 	if (str[1] == 'a')
-		ft_swap(a);
+		ft_swap(a, 0);
 	else if (str[1] == 'b')
-		ft_swap(b);
+		ft_swap(b, 0);
 	else
 	{
-		ft_swap(a);
-		ft_swap(b);
+		ft_swap(a, 0);
+		ft_swap(b, 0);
 	}
 }
 
 void	ft_r(t_stack **a, t_stack **b, char *str)
 {
 	if (str[1] == 'a')
-		ft_rotate(a);
+		ft_rotate(a, 0);
 	else if (str[1] == 'b')
-		ft_rotate(b);
+		ft_rotate(b, 0);
 	else if (str[1])
 	{
-		ft_rotate(a);
-		ft_rotate(b);
+		ft_rotate(a, 0);
+		ft_rotate(b, 0);
 	}
 }
 
 void	ft_rr(t_stack **a, t_stack **b, char *str)
 {
 	if (str[2] == 'a')
-		ft_reverse(a);
+		ft_reverse(a, 0);
 	else if (str[2] == 'b')
-		ft_reverse(b);
+		ft_reverse(b, 0);
 	else
 	{
-		ft_reverse(a);
-		ft_reverse(b);
+		ft_reverse(a, 0);
+		ft_reverse(b, 0);
 	}
 }
 

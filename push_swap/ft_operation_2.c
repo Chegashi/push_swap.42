@@ -6,13 +6,13 @@
 /*   By: mochegri <mochegri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/16 03:21:51 by abort             #+#    #+#             */
-/*   Updated: 2021/05/01 17:44:38 by mochegri         ###   ########.fr       */
+/*   Updated: 2021/05/13 13:21:01 by mochegri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_swap(t_stack *a)
+void	ft_swap(t_stack *a, int c)
 {
 	int	tmp;
 
@@ -22,9 +22,15 @@ void	ft_swap(t_stack *a)
 		a->data = a->next->data;
 		a->next->data = tmp;
 	}
+	if (c)
+	{
+		write(1, "s", 1);
+		write(1, &c, 1);
+		write(1, "\n", 1);
+	}
 }
 
-void	ft_push(t_stack **dest, t_stack **src)
+void	ft_push(t_stack **dest, t_stack **src, int c)
 {
 	t_stack	*tmp;
 
@@ -35,9 +41,15 @@ void	ft_push(t_stack **dest, t_stack **src)
 		tmp->next = *dest;
 		*dest = tmp;
 	}
+	if (c)
+	{
+		write(1, "p", 1);
+		write(1, &c, 1);
+		write(1, "\n", 1);
+	}
 }
 
-void	ft_rotate(t_stack **a)
+void	ft_rotate(t_stack **a, int c)
 {
 	t_stack	*tmp;
 	t_stack	*head;
@@ -52,9 +64,15 @@ void	ft_rotate(t_stack **a)
 		tmp->next = head;
 		tmp->next->next = NULL;
 	}
+	if (c)
+	{
+		write(1, "r", 1);
+		write(1, &c, 1);
+		write(1, "\n", 1);
+	}
 }
 
-void	ft_reverse(t_stack **a)
+void	ft_reverse(t_stack **a, int c)
 {
 	t_stack	*last;
 	t_stack	*tmp;
@@ -69,11 +87,20 @@ void	ft_reverse(t_stack **a)
 		last->next = *a;
 		*a = last;
 	}
+	if (c)
+	{
+		write(1, "rr", 2);
+		write(1, &c, 1);
+		write(1, "\n", 1);
+	}
 }
 
 int	ft_is_sorted(t_stack *a)
 {
-	while (a)
+	int	shunk;
+
+	shunk = a->shunk;
+	while (a && a->shunk == shunk)
 	{
 		if (a->next && a->data > a->next->data)
 			return (0);

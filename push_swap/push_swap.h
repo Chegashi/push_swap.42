@@ -6,7 +6,7 @@
 /*   By: mochegri <mochegri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 15:15:34 by mochegri          #+#    #+#             */
-/*   Updated: 2021/05/06 09:33:27 by mochegri         ###   ########.fr       */
+/*   Updated: 2021/05/13 15:59:48 by mochegri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,10 @@ typedef struct s_push_swap
 }	t_push_swap;
 
 int					ft_operation(t_stack *a, t_stack *b, char *oper);
-void				ft_swap(t_stack *a);
-void				ft_push(t_stack **a, t_stack **b);
-void				ft_rotate(t_stack **a);
-void				ft_reverse(t_stack **a);
+void				ft_swap(t_stack *a, int c);
+void				ft_push(t_stack **a, t_stack **b, int c);
+void				ft_rotate(t_stack **a, int c);
+void				ft_reverse(t_stack **a, int c);
 void				ft_s(t_stack *a, t_stack *b, char *str);
 void				ft_p(t_stack **a, t_stack *b, char *str);
 void				ft_r(t_stack **a, t_stack **b, char *str);
@@ -56,7 +56,7 @@ void				ft_free_stack(t_stack *stack);
 t_stack				*ft_init_stack(int ac, char **av);
 void				ft_putchar_coef(char c, int nbr);
 void				print_header(char *str);
-int					ft_get_the_midlle(t_stack *a);
+int					ft_get_the_midlle(t_stack *a, int shunk);
 void				ft_init_shunk(t_stack *a);
 void				ft_sort_integer_table(int *tab, int size);
 int					ft_is_sorted(t_stack *a);
@@ -68,4 +68,6 @@ int	ft_bottum_stack(t_stack *a);
 void	ft_unshanking(t_stack **a, t_stack **b);
 int	ft_nbr_shunk(t_stack *a, int shunk);
 int	ft_get_max(t_stack *b, int shunk);
+int	ft_chr_grender_pivot(t_stack *a, int pivot);
+
 #endif

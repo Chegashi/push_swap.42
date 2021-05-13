@@ -6,7 +6,7 @@
 /*   By: mochegri <mochegri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/25 03:55:56 by abort             #+#    #+#             */
-/*   Updated: 2021/05/01 16:45:49 by mochegri         ###   ########.fr       */
+/*   Updated: 2021/05/13 17:21:56 by mochegri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,12 +57,26 @@ void	ft_check_duplicate(t_stack *a)
 int	ft_len_stack(t_stack *a)
 {
 	int	len;
-
+	int shunk;
+	
+	shunk = a->shunk;
 	len = 0;
-	while (a)
+	while (a && shunk == a->shunk)
 	{
 		len++;
 		a = a->next;
 	}
 	return (len);
+}
+
+void	ft_init_shunk(t_stack *a)
+{
+	t_stack	*tmp;
+
+	tmp = a;
+	while (tmp)
+	{
+		tmp->shunk = 0;
+		tmp = tmp->next;
+	}
 }
