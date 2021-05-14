@@ -6,7 +6,7 @@
 /*   By: mochegri <mochegri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 15:15:34 by mochegri          #+#    #+#             */
-/*   Updated: 2021/05/13 15:59:48 by mochegri         ###   ########.fr       */
+/*   Updated: 2021/05/14 14:48:59 by mochegri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ void				ft_sort_integer_table(int *tab, int size);
 int					ft_is_sorted(t_stack *a);
 int					ft_len_stack(t_stack *a);
 void				ft_quick_sort(t_stack **a, t_stack **b);
-void	ft_shanking(t_stack **a, t_stack **b);
+void	ft_shanking(t_stack **a, t_stack **b, int start);
 int	ft_chr_less_pivot(t_stack *a, int pivot);
 int	ft_bottum_stack(t_stack *a);
 void	ft_unshanking(t_stack **a, t_stack **b);

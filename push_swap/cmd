@@ -1,3 +1,101 @@
+rra
+pb
+rra
+pb
+ra
+pb
+pb
+ra
+ra
+ra
+ra
+ra
+ra
+pb
+pb
+ra
+pb
+pb
+pb
+pb
+pb
+ra
+ra
+pb
+pb
+ra
+ra
+pb
+pb
+pb
+pb
+ra
+ra
+pb
+pb
+ra
+ra
+pb
+pb
+pb
+pb
+pb
+ra
+ra
+ra
+ra
+pb
+pb
+ra
+ra
+pb
+pb
+ra
+ra
+ra
+pb
+pb
+ra
+ra
+pb
+pb
+pb
+ra
+ra
+pb
+pb
+pb
+ra
+ra
+ra
+ra
+ra
+ra
+pb
+ra
+ra
+pb
+pb
+pb
+pb
+ra
+pb
+pb
+pb
+ra
+ra
+ra
+pb
+ra
+pb
+ra
+pb
+ra
+ra
+pb
+ra
+pb
+ra
 pb
 rra
 pb
@@ -5,8 +103,22 @@ ra
 pb
 pb
 pb
+pb
 ra
 ra
+ra
+ra
+ra
+pb
+pb
+pb
+ra
+ra
+ra
+pb
+pb
+ra
+pb
 ra
 pb
 ra
@@ -14,6 +126,30 @@ ra
 pb
 ra
 ra
+pb
+ra
+ra
+pb
+ra
+pb
+pb
+ra
+pb
+ra
+ra
+pb
+ra
+pb
+ra
+pb
+pb
+ra
+pb
+pb
+pb
+ra
+pb
+ra
 ra
 pb
 pb
@@ -22,44 +158,180 @@ pb
 ra
 pb
 pb
-ra
+pb
 pb
 ra
 ra
+ra
+pb
+pb
+pb
 pb
 rra
 pb
-rra
+ra
+ra
+pb
 pb
 ra
+pb
+ra
+pb
+ra
+pb
+ra
+pb
+pb
+rb
+pa
+rrb
+pa
+pa
+rb
+rb
+rb
+pa
+pa
+rrb
+rrb
+rrb
+sa
+rb
+pa
+rrb
+pa
+sb
+pa
+pa
+rb
+rb
+pa
+rb
+rb
+pa
+pa
+pa
+rb
+pa
+rrb
+rrb
+rrb
+rrb
+rrb
+ra
+ra
+ra
+pb
+pb
+rra
+rra
+rra
 pb
 sa
 pa
 sb
 pa
 pa
-
-*********************************************************************************
-|				Exec : 					|
-*********************************************************************************
-|		a			|		b			|
-*********************************************************************************
-|16					|11					|
-|17					|14					|
-|18					|13					|
-|19					|12					|
-|20					|15					|
-| 					|3					|
-| 					|7					|
-| 					|2					|
-| 					|8					|
-| 					|1					|
-| 					|10					|
-| 					|9					|
-| 					|6					|
-| 					|4					|
-| 					|5					|
-*********************************************************************************rb
+rb
+rb
+pa
+rb
+rb
+pa
+pa
+rrb
+rrb
+rrb
+rrb
+ra
+pb
+rra
+sa
+pa
+rb
+rb
+rb
+pa
+rrb
+rrb
+rrb
+pa
+pa
+pa
+rb
+rb
+rb
+pa
+rb
+pa
+pa
+rb
+pa
+rb
+pa
+rb
+pa
+pa
+pa
+rb
+rb
+pa
+rb
+pa
+rb
+rb
+rb
+pa
+pa
+rrb
+rrb
+rrb
+rrb
+rrb
+rrb
+rrb
+rrb
+rrb
+rrb
+rrb
+rrb
+rrb
+pb
+pb
+ra
+pb
+ra
+ra
+pb
+ra
+ra
+ra
+pb
+pb
+rra
+rra
+rra
+rra
+rra
+rra
+ra
+pb
+pb
+ra
+pb
+rra
+rra
+ra
+pb
+rra
+pa
+rb
+pa
+rrb
+sb
+pa
+pa
+rb
 pa
 rb
 rb
@@ -68,173 +340,423 @@ rrb
 rrb
 rrb
 sa
-
-*********************************************************************************
-|				Exec : 					|
-*********************************************************************************
-|		a			|		b			|
-*********************************************************************************
-|14					|11					|
-|15					|13					|
-|16					|12					|
-|17					|3					|
-|18					|7					|
-|19					|2					|
-|20					|8					|
-| 					|1					|
-| 					|10					|
-| 					|9					|
-| 					|6					|
-| 					|4					|
-| 					|5					|
-*********************************************************************************rb
+pa
+pa
+pa
+pa
+pa
+rb
+pa
+pa
+pa
+rb
+pa
+rb
+rb
 pa
 rrb
-sb
+rrb
+rrb
+rrb
+ra
+pb
+ra
+pb
+pb
+rra
+rra
+ra
+pb
+rra
+pa
+rb
+rb
+pa
+rrb
+rrb
 pa
 pa
-
-*********************************************************************************
-|				Exec : 					|
-*********************************************************************************
-|		a			|		b			|
-*********************************************************************************
-|11					|3					|
-|12					|7					|
-|13					|2					|
-|14					|8					|
-|15					|1					|
-|16					|10					|
-|17					|9					|
-|18					|6					|
-|19					|4					|
-|20					|5					|
-*********************************************************************************rb
 pa
 rb
 pa
 rb
 pa
+rrb
+rrb
+ra
+pb
+rra
 pa
+rb
+rb
+rb
+pa
+rrb
+rrb
+rrb
+rb
+pa
+rrb
+pa
+pa
+pa
+rb
+rb
+pa
+rb
+pa
+rb
+pa
+pa
+rb
+pa
+pa
+pa
+rb
+rb
+pa
+pa
+pa
+rb
+rb
+pa
+pa
+rb
+pa
+rb
+rb
+rb
+rb
+rb
+pa
+rb
+pa
+rb
+pa
+pa
+pa
+rb
+rb
+rb
+pa
+rb
+rb
+pa
+rb
+rb
+rb
+pa
+rb
+pa
+pa
+rrb
+rrb
+rrb
+rrb
+rrb
+rrb
+rrb
+rrb
+rrb
+rrb
+rrb
+rrb
+rrb
+rrb
+rrb
+rrb
+rrb
+rrb
+rrb
+rrb
+rrb
+rrb
+rrb
+rrb
+rrb
+rrb
+ra
+pb
+pb
+pb
+ra
+ra
+ra
+pb
+ra
+ra
+pb
+pb
+pb
+ra
+pb
+ra
+ra
+ra
+pb
+pb
+ra
+pb
+ra
+pb
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+rra
+pb
+pb
+ra
+ra
+ra
+ra
+pb
+pb
+ra
+pb
+ra
+pb
+rra
+rra
+rra
+rra
+rra
+rra
+ra
+pb
+ra
+pb
+ra
+pb
+rra
+rra
+rra
+rb
+pa
+rrb
+pa
+pa
+pa
+pa
+sa
+rb
+rb
+pa
+rrb
+rrb
+rb
+pa
+rrb
+pa
+pa
+pa
+rb
+pa
+rb
+rb
+rb
+pa
+rb
+pa
+pa
+rrb
+rrb
 rrb
 rrb
 rrb
 ra
 ra
+ra
 pb
 pb
+rra
+rra
+rra
+pb
+sa
+pa
+pa
+pa
+rb
+pa
+rb
+rb
+pa
+rb
+pa
+rrb
+rrb
+rrb
+rrb
+rb
+rb
+rb
+pa
+rrb
+rrb
+rrb
+rb
+pa
+rrb
+pa
+pa
+rb
+rb
+pa
+pa
+rb
+rb
+pa
+rb
+rb
+rb
+rb
+rb
+pa
+pa
+pa
+pa
+pa
+rb
+rb
+pa
+pa
+rb
+rb
+pa
+rb
+pa
+rrb
+rrb
+rrb
+rrb
+rrb
+rrb
+rrb
+rrb
+rrb
+rrb
+rrb
+rrb
+rrb
+rrb
+pb
+ra
+ra
+ra
+ra
+pb
+pb
+pb
+pb
+ra
+ra
+pb
+rra
+rra
+rra
+rra
+rra
+rra
+ra
+ra
+ra
+pb
+pb
+pb
+rra
+rra
+rra
+rb
+pa
+rrb
 sb
 pa
 pa
-
-*********************************************************************************
-|				Exec : 					|
-*********************************************************************************
-|		a			|		b			|
-*********************************************************************************
-|7					|3					|
-|8					|2					|
-|11					|1					|
-|12					|6					|
-|13					|4					|
-|14					|5					|
-|15					|					|
-|16					|					|
-|17					|					|
-|18					|					|
-|19					|					|
-|20					|					|
-|9					|					|
-|10					|					|
-*********************************************************************************rb
-rb
-rb
 pa
 rb
 pa
 rrb
+sa
+rb
+rb
+pa
 rrb
 rrb
+rb
+rb
+pa
 rrb
-
-*********************************************************************************
-|				Exec : 					|
-*********************************************************************************
-|		a			|		b			|
-*********************************************************************************
-|5					|3					|
-|6					|2					|
-|7					|1					|
-|8					|4					|
-|11					|					|
-|12					|					|
-|13					|					|
-|14					|					|
-|15					|					|
-|16					|					|
-|17					|					|
-|18					|					|
-|19					|					|
-|20					|					|
-|9					|					|
-|10					|					|
-*********************************************************************************rb
+rrb
+sb
+pa
+pa
+rb
+pa
+pa
+rb
+pa
+rb
+pa
+pa
+rb
+rb
 rb
 rb
 pa
 rrb
 rrb
 rrb
-
-*********************************************************************************
-|				Exec : 					|
-*********************************************************************************
-|		a			|		b			|
-*********************************************************************************
-|4					|3					|
-|5					|2					|
-|6					|1					|
-|7					|					|
-|8					|					|
-|11					|					|
-|12					|					|
-|13					|					|
-|14					|					|
-|15					|					|
-|16					|					|
-|17					|					|
-|18					|					|
-|19					|					|
-|20					|					|
-|9					|					|
-|10					|					|
-*********************************************************************************pa
+rrb
+rrb
+rrb
+rrb
+pb
+pb
+ra
+pb
+rra
+ra
+ra
+pb
+rra
+rra
+sa
+pa
+rb
+rb
+pa
+rrb
+rrb
+sb
 pa
 pa
-
-*********************************************************************************
-|				Exec : 					|
-*********************************************************************************
-|		a			|		b			|
-*********************************************************************************
-|1					|					|
-|2					|					|
-|3					|					|
-|4					|					|
-|5					|					|
-|6					|					|
-|7					|					|
-|8					|					|
-|11					|					|
-|12					|					|
-|13					|					|
-|14					|					|
-|15					|					|
-|16					|					|
-|17					|					|
-|18					|					|
-|19					|					|
-|20					|					|
-|9					|					|
-|10					|					|
-*********************************************************************************
+rb
+pa
+pa
+rb
+rb
+rb
+pa
+rrb
+rrb
+rrb
+rrb
+ra
+pb
+rra
+sa
+pa
+pa
+pa
+pa
+sb
+pa
+pa

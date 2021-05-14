@@ -6,7 +6,7 @@
 /*   By: mochegri <mochegri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/14 15:46:29 by mochegri          #+#    #+#             */
-/*   Updated: 2021/05/13 18:19:49 by mochegri         ###   ########.fr       */
+/*   Updated: 2021/05/14 14:49:53 by mochegri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,21 +33,21 @@ void	ft_quick_sort(t_stack **a, t_stack **b)
 {
 	if (ft_is_sorted(*a) && !(*b))
 		return;
-	ft_shanking(a, b);
+	ft_shanking(a, b, 1);
 	ft_unshanking(a, b);
-	ft_print_stack(*a ,*b, "");
 }
 
-void	ft_shanking(t_stack **a, t_stack **b)
+void	ft_shanking(t_stack **a, t_stack **b, int start)
 {
 	int  pivot;
 	int shunk;
+	int nbr_ra;
 
 	shunk = (*a)->shunk;
-
 	while (!ft_is_sorted(*a) && ft_nbr_shunk(*a, (*a)->shunk) > 2)
 	{
 		shunk++;
+		nbr_ra = 0;
 		pivot = ft_get_the_midlle(*a, (*a)->shunk);
 		while (ft_chr_less_pivot(*a, pivot))
 			if ((*a)->data < pivot)
@@ -62,7 +62,12 @@ void	ft_shanking(t_stack **a, t_stack **b)
 				(*b)->shunk = shunk;
 			}
 			else
+			{
 				ft_rotate(a, 'a');
+				nbr_ra++;
+			}
+		while (!start && nbr_ra--)
+			ft_reverse(a, 'a');
 	}
 	if (!ft_is_sorted(*a))
 		ft_swap(*a, 'a');
@@ -156,7 +161,6 @@ void	ft_unshanking(t_stack **a, t_stack **b)
 		{
 			rb_nbr = 0;
 			pivot = ft_get_the_midlle(*b, (*b)->shunk);
-			ft_print_stack(*a, *b, "");
 			while (ft_chr_grender_pivot(*b, pivot))
 			{
 				if ((*b)->data > pivot)
@@ -173,7 +177,7 @@ void	ft_unshanking(t_stack **a, t_stack **b)
 			}
 			while (rb_nbr--)
 				ft_reverse(b, 'b');
-			ft_shanking(a, b);
+			ft_shanking(a, b, 0);
 		}
 	}
 }
