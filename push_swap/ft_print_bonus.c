@@ -50,7 +50,7 @@ void	ft_print_stack(t_stack *a, t_stack *b, char *str)
 		if (iter_a)
 		{
 			ft_putnbr(iter_a->data);
-			write(1, "[", 1); ft_putnbr(iter_a->shunk);write(1, "]", 1);
+			// write(1, "[", 1); ft_putnbr(iter_a->shunk);write(1, "]", 1);
 			iter_a = iter_a->next;
 		}
 		else
@@ -59,7 +59,7 @@ void	ft_print_stack(t_stack *a, t_stack *b, char *str)
 		if (iter_b)
 		{
 			ft_putnbr(iter_b->data);
-			write(1, "[", 1); ft_putnbr(iter_a->shunk);write(1, "]", 1);
+			// write(1, "[", 1); ft_putnbr(iter_a->shunk);write(1, "]", 1);
 			iter_b = iter_b->next;
 		}
 		ft_putstr("\t\t\t\t\t|\n");

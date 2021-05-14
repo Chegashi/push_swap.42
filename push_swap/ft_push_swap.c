@@ -35,6 +35,7 @@ void	ft_quick_sort(t_stack **a, t_stack **b)
 		return;
 	ft_shanking(a, b);
 	ft_unshanking(a, b);
+	ft_print_stack(*a ,*b, "");
 }
 
 void	ft_shanking(t_stack **a, t_stack **b)
@@ -42,13 +43,13 @@ void	ft_shanking(t_stack **a, t_stack **b)
 	int  pivot;
 	int shunk;
 
-	shunk = 0;
-	while (!ft_is_sorted(*a) && ft_len_stack(*a) > 2)
+	shunk = (*a)->shunk;
+
+	while (!ft_is_sorted(*a) && ft_nbr_shunk(*a, (*a)->shunk) > 2)
 	{
 		shunk++;
 		pivot = ft_get_the_midlle(*a, (*a)->shunk);
 		while (ft_chr_less_pivot(*a, pivot))
-		{
 			if ((*a)->data < pivot)
 			{
 				ft_push(b, a, 'b');
@@ -62,9 +63,6 @@ void	ft_shanking(t_stack **a, t_stack **b)
 			}
 			else
 				ft_rotate(a, 'a');
-			printf("\n[[%d]]\n", (*b)->shunk);
-			ft_print_stack(*a, *b, "");
-		}
 	}
 	if (!ft_is_sorted(*a))
 		ft_swap(*a, 'a');
@@ -141,14 +139,12 @@ int	ft_bottum_stack(t_stack *a)
 
 void	ft_unshanking(t_stack **a, t_stack **b)
 {
-	int	pivot;
+	int	pivot = 0;
 	int rb_nbr;
-
 	while (*b)
 	{
-		ft_print_stack(*a, *b, "");
 		if (ft_nbr_shunk(*b, (*b)->shunk) == 1)
-			ft_push(b, a, 'a');
+			ft_push(a, b, 'a');
 		else if (ft_nbr_shunk(*b, (*b)->shunk) == 2)
 		{
 			if ((*b)->data < (*b)->next->data)
@@ -160,12 +156,13 @@ void	ft_unshanking(t_stack **a, t_stack **b)
 		{
 			rb_nbr = 0;
 			pivot = ft_get_the_midlle(*b, (*b)->shunk);
-			while (ft_chr_grender_pivot(*b, (*b)->shunk))
+			ft_print_stack(*a, *b, "");
+			while (ft_chr_grender_pivot(*b, pivot))
 			{
-				ft_print_stack(*a, *b, "");
 				if ((*b)->data > pivot)
 				{
 					ft_push(a, b, 'a');
+					(*a)->shunk++;
 					(*a)->shunk++;
 				}
 				else
@@ -175,9 +172,9 @@ void	ft_unshanking(t_stack **a, t_stack **b)
 				}
 			}
 			while (rb_nbr--)
-				ft_reverse(b, 'b');	
+				ft_reverse(b, 'b');
+			ft_shanking(a, b);
 		}
-		ft_shanking(a, b);
 	}
 }
 
@@ -197,9 +194,11 @@ int	ft_nbr_shunk(t_stack *a, int shunk)
 int	ft_chr_grender_pivot(t_stack *a, int pivot)
 {
 	t_stack *sp;
+	int shunk;
 
+	shunk = a->shunk;
 	sp = a;
-	while (sp)
+	while (sp && sp->shunk == shunk)
 	{
 		if (sp->data > pivot)
 			return (1);
