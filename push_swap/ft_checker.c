@@ -6,7 +6,7 @@
 /*   By: mochegri <mochegri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 15:15:28 by mochegri          #+#    #+#             */
-/*   Updated: 2021/05/14 15:59:20 by mochegri         ###   ########.fr       */
+/*   Updated: 2021/05/14 18:30:25 by mochegri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	main(int ac, char **av)
 			ac--;
 		}
 	}
-	if(ac)
+	if (ac)
 	{
 		p_checker.a = ft_init_stack(ac, av);
 		ft_init_shunk(p_checker.a);
@@ -51,8 +51,8 @@ char	*ft_read_cmd(void)
 	while (1)
 	{
 		cmd = ft_read_line();
-		if(!*cmd)
-			break;
+		if (!*cmd)
+			break ;
 		ft_check_oper(cmd);
 		tmp = ft_strjoin(cmds, cmd);
 		free(cmds);
@@ -67,19 +67,20 @@ char	*ft_read_cmd(void)
 
 char	*ft_read_line(void)
 {
-	char i;
-	int n;
-	i = -1;
-	char *cmd = (char*)malloc(sizeof(char) * 5);
+	int		n;
+	char	i;
+	char	*cmd;
 
+	i = -1;
+	cmd = (char *)malloc(sizeof(char) * 5);
 	while (1)
 	{
-		n = read(0, cmd+(++i), 1);
-		if (! *(cmd + i) || *(cmd +i) == '\n' || n < 1 || n > 6)
-			break;
+		n = read(0, cmd + (++i), 1);
+		if (!*(cmd + i) || *(cmd + i) == '\n' || n < 1 || n > 6)
+			break ;
 	}
 	*(cmd + i) = '\0';
-	return(cmd);
+	return (cmd);
 }
 
 void	ft_exec_cmd(t_push_swap *p_checker)
@@ -103,8 +104,6 @@ void	ft_exec_cmd(t_push_swap *p_checker)
 			ft_r(&(p_checker->a), &(p_checker->b), *cmd);
 		if (p_checker->verbos)
 			ft_print_stack(p_checker->a, p_checker->b, *cmd);
-		// else if (p_checker->verbos)
-		// 	ft_print_stack(p_checker->a, p_checker->b, *cmd);
 		cmd++;
 		if (p_checker->verbos)
 			write(1, "\n\n", 1);

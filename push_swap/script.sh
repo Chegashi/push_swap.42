@@ -40,7 +40,7 @@ arg=$(ruby -e "puts (1..100).to_a.shuffle.join(' ')")
 	echo "<100 random values>"
 	./push_swap $arg > cmd
 	./checker $arg < cmd
-	echo "[100=>5, 900=>4, 1100=>3, 1300=>2, 1500=>1]`wc -l cmd`"
+	echo "[700=>5, 900=>4, 1100=>3, 1300=>2, 1500=>1]`wc -l cmd`"
 
 arg=$(ruby -e "puts (1..500).to_a.shuffle.join(' ')")
 	echo "<500 random values>"

@@ -6,16 +6,16 @@
 /*   By: mochegri <mochegri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/14 15:46:29 by mochegri          #+#    #+#             */
-/*   Updated: 2021/05/14 18:18:20 by mochegri         ###   ########.fr       */
+/*   Updated: 2021/05/14 18:51:15 by mochegri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int main(int ac, char **av)
+int	main(int ac, char **av)
 {
 	t_push_swap		p_swap;
-	
+
 	if (ac > 2)
 	{
 		av++;
@@ -26,14 +26,13 @@ int main(int ac, char **av)
 		ft_quick_sort(&(p_swap.a), &(p_swap.b));
 		ft_free_stack(p_swap.a);
 	}
-    return (0);
+	return (0);
 }
 
 void	ft_quick_sort(t_stack **a, t_stack **b)
 {
 	if (ft_is_sorted(*a) && !(*b))
-		return;
-		printf("[[%d]]\n", ft_len_stack(*a));
+		return ;
 	if (ft_len_stack(*a) == 3)
 		ft_sort_3(a);
 	else
@@ -43,47 +42,11 @@ void	ft_quick_sort(t_stack **a, t_stack **b)
 	}
 }
 
-void	ft_shanking(t_stack **a, t_stack **b, int start)
-{
-	int  pivot;
-	int shunk;
-	int nbr_ra;
-
-	shunk = (*a)->shunk;
-	while (!ft_is_sorted(*a) && ft_nbr_shunk(*a, (*a)->shunk) > 2)
-	{
-		shunk++;
-		nbr_ra = 0;
-		pivot = ft_get_the_midlle(*a, (*a)->shunk);
-		while (ft_chr_less_pivot(*a, pivot))
-			if ((*a)->data < pivot)
-			{
-				ft_push(b, a, 'b');
-				(*b)->shunk = shunk;
-			}
-			else if (ft_bottum_stack(*a) < pivot)
-			{
-				ft_reverse(a, 'a');
-				ft_push(b, a, 'b');
-				(*b)->shunk = shunk;
-			}
-			else
-			{
-				ft_rotate(a, 'a');
-				nbr_ra++;
-			}
-		while (!start && nbr_ra--)
-			ft_reverse(a, 'a');
-	}
-	if (!ft_is_sorted(*a))
-		ft_swap(*a, 'a');
-}
-
 void	ft_sort_integer_table(int *tab, int size)
 {
-	int i;
-	int j;
-	int tmp;
+	int	i;
+	int	j;
+	int	tmp;
 
 	i = size;
 	while (--i >= 0)
@@ -103,15 +66,15 @@ void	ft_sort_integer_table(int *tab, int size)
 
 int	ft_get_the_midlle(t_stack *a, int shunk)
 {
-	int len;
+	int	len;
 	int	*array;
-	int i;
-	int pivot;
+	int	i;
+	int	pivot;
 
 	i = 0;
 	shunk = a->shunk;
 	len = ft_len_stack(a);
-	array =  (int *)malloc(sizeof(int) * len);
+	array = (int *)malloc(sizeof(int) * len);
 	while (a && a->shunk == shunk)
 	{
 		array[i++] = a->data;
@@ -125,7 +88,7 @@ int	ft_get_the_midlle(t_stack *a, int shunk)
 
 int	ft_chr_less_pivot(t_stack *a, int pivot)
 {
-	t_stack *sp;
+	t_stack	*sp;
 
 	sp = a;
 	while (sp)
@@ -135,111 +98,4 @@ int	ft_chr_less_pivot(t_stack *a, int pivot)
 		sp = sp->next;
 	}
 	return (0);
-}
-
-int	ft_bottum_stack(t_stack *a)
-{
-	t_stack	*tmp;
-
-	tmp = a;
-	while (tmp->next)
-		tmp = tmp->next;
-	return (tmp->data);
-
-}
-
-void	ft_unshanking(t_stack **a, t_stack **b)
-{
-	int	pivot = 0;
-	int rb_nbr;
-	while (*b)
-	{
-		if (ft_nbr_shunk(*b, (*b)->shunk) == 1)
-			ft_push(a, b, 'a');
-		else if (ft_nbr_shunk(*b, (*b)->shunk) == 2)
-		{
-			if ((*b)->data < (*b)->next->data)
-				ft_swap(*b, 'b');
-			ft_push(a, b, 'a');
-			ft_push(a, b ,'a');
-		}
-		else
-		{
-			rb_nbr = 0;
-			pivot = ft_get_the_midlle(*b, (*b)->shunk);
-			while (ft_chr_grender_pivot(*b, pivot))
-			{
-				if ((*b)->data > pivot)
-				{
-					ft_push(a, b, 'a');
-					(*a)->shunk++;
-					(*a)->shunk++;
-				}
-				else
-				{
-					ft_rotate(b, 'b');
-					rb_nbr++;
-				}
-			}
-			while (rb_nbr--)
-				ft_reverse(b, 'b');
-			ft_shanking(a, b, 0);
-		}
-	}
-}
-
-int	ft_nbr_shunk(t_stack *a, int shunk)
-{
-	int n;
-	
-	n = 0;
-	while (a && a->shunk == shunk)
-	{
-		n++;
-		a =  a->next;
-	}
-	return (n);
-}
-
-int	ft_chr_grender_pivot(t_stack *a, int pivot)
-{
-	t_stack *sp;
-	int shunk;
-
-	shunk = a->shunk;
-	sp = a;
-	while (sp && sp->shunk == shunk)
-	{
-		if (sp->data > pivot)
-			return (1);
-		sp = sp->next;
-	}
-	return (0);
-}
-
-void	ft_sort_3(t_stack **a)
-{
-	int	c1;
-	int	c2;
-	int	c3;
-
-	c1 = (*a)->data;
-	c2 = (*a)->next->data;
-	c3 = (*a)->next->next->data;
-	if (c1 > c2 && c2 < c1 && c1 < c3)
-		ft_swap(*a, 'a');
-	else if (c1 > c2 && c2 > c3 && c1 > c3)
-	{
-		ft_swap(*a, 'a');
-		ft_reverse(a, 'a');	
-	}
-	else if (c1 > c2 && c2 < c3 && c1 > c3)
-		ft_rotate(a, 'a');
-	else if (c1 < c2 && c2 > c3 && c1 < c3)
-	{
-		ft_swap(*a, 'a');
-		ft_reverse(a, 'a');	
-	}
-	else	
-		ft_reverse(a, 'a');
 }

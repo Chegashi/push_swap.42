@@ -6,7 +6,7 @@
 /*   By: mochegri <mochegri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 15:15:34 by mochegri          #+#    #+#             */
-/*   Updated: 2021/05/14 17:59:49 by mochegri         ###   ########.fr       */
+/*   Updated: 2021/05/14 19:18:47 by mochegri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,42 +34,43 @@ typedef struct s_push_swap
 	char		**cmd;
 }	t_push_swap;
 
-int					ft_operation(t_stack *a, t_stack *b, char *oper);
-void				ft_swap(t_stack *a, int c);
-void				ft_push(t_stack **a, t_stack **b, int c);
-void				ft_rotate(t_stack **a, int c);
-void				ft_reverse(t_stack **a, int c);
-void				ft_s(t_stack *a, t_stack *b, char *str);
-void				ft_p(t_stack **a, t_stack *b, char *str);
-void				ft_r(t_stack **a, t_stack **b, char *str);
-void				ft_rr(t_stack **a, t_stack **b, char *str);
-void				ft_check_duplicate(t_stack *a);
-char				*ft_read_cmd(void);
-void				ft_check_oper(char *str);
-void				ft_exec_cmd(t_push_swap *p_checker);
-void				ft_checker(t_push_swap p_checker);
-void				ft_print_stack(t_stack *a, t_stack *b, char *str);
-void				ft_free(t_push_swap *p_checker);
-void				ft_print_init(t_stack a);
-void				ft_print_stack(t_stack *a, t_stack *b, char *str);;
-void				ft_free_stack(t_stack *stack);
-t_stack				*ft_init_stack(int ac, char **av);
-void				ft_putchar_coef(char c, int nbr);
-void				print_header(char *str);
-int					ft_get_the_midlle(t_stack *a, int shunk);
-void				ft_init_shunk(t_stack *a);
-void				ft_sort_integer_table(int *tab, int size);
-int					ft_is_sorted(t_stack *a);
-int					ft_len_stack(t_stack *a);
-void				ft_quick_sort(t_stack **a, t_stack **b);
+int		ft_operation(t_stack *a, t_stack *b, char *oper);
+int		ft_get_the_midlle(t_stack *a, int shunk);
+int		ft_is_sorted(t_stack *a);
+int		ft_len_stack(t_stack *a);
+int		ft_bottum_stack(t_stack *a);
+int		ft_nbr_shunk(t_stack *a, int shunk);
+int		ft_get_max(t_stack *b, int shunk);
+int		ft_chr_grender_pivot(t_stack *a, int pivot);
+int		ft_chr_less_pivot(t_stack *a, int pivot);
+int		ft_a_divide(t_stack **a, t_stack **b, int pivot, int shunk);
+char	*ft_read_cmd(void);
+char	*ft_read_line(void);
+void	ft_swap(t_stack *a, int c);
+void	ft_push(t_stack **a, t_stack **b, int c);
+void	ft_rotate(t_stack **a, int c);
+void	ft_reverse(t_stack **a, int c);
+void	ft_s(t_stack *a, t_stack *b, char *str);
+void	ft_p(t_stack **a, t_stack *b, char *str);
+void	ft_r(t_stack **a, t_stack **b, char *str);
+void	ft_rr(t_stack **a, t_stack **b, char *str);
+void	ft_check_duplicate(t_stack *a);
+void	ft_check_oper(char *str);
+void	ft_exec_cmd(t_push_swap *p_checker);
+void	ft_checker(t_push_swap p_checker);
+void	ft_print_stack(t_stack *a, t_stack *b, char *str);
+void	ft_free(t_push_swap *p_checker);
+void	ft_print_init(t_stack a);
+void	ft_print_stack(t_stack *a, t_stack *b, char *str);;
+void	ft_free_stack(t_stack *stack);
+void	ft_putchar_coef(char c, int nbr);
+void	print_header(char *str);
+void	ft_init_shunk(t_stack *a);
+void	ft_sort_integer_table(int *tab, int size);
+void	ft_quick_sort(t_stack **a, t_stack **b);
 void	ft_shanking(t_stack **a, t_stack **b, int start);
-int	ft_chr_less_pivot(t_stack *a, int pivot);
-int	ft_bottum_stack(t_stack *a);
 void	ft_unshanking(t_stack **a, t_stack **b);
-int	ft_nbr_shunk(t_stack *a, int shunk);
-int	ft_get_max(t_stack *b, int shunk);
-int	ft_chr_grender_pivot(t_stack *a, int pivot);
-char*	ft_read_line(void);
 void	ft_sort_3(t_stack **a);
-
+void 	ft_b_divide(t_stack **a, t_stack **b);
+t_stack	*ft_init_stack(int ac, char **av);
 #endif

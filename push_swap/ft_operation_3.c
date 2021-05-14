@@ -6,7 +6,7 @@
 /*   By: mochegri <mochegri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/25 03:55:56 by abort             #+#    #+#             */
-/*   Updated: 2021/05/13 17:21:56 by mochegri         ###   ########.fr       */
+/*   Updated: 2021/05/14 18:32:47 by mochegri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,11 @@ void	ft_free(t_push_swap *p_checker)
 {
 	ft_free_stack(p_checker->a);
 	ft_free_stack(p_checker->b);
-	// while (*(p_checker->cmd))
-	// {
-	// 	free(*(p_checker->cmd));
-	// 	p_checker->cmd++;
-	// }
+	while (*(p_checker->cmd))
+	{
+		free(*(p_checker->cmd));
+		p_checker->cmd++;
+	}
 }
 
 void	ft_check_duplicate(t_stack *a)
@@ -57,8 +57,8 @@ void	ft_check_duplicate(t_stack *a)
 int	ft_len_stack(t_stack *a)
 {
 	int	len;
-	int shunk;
-	
+	int	shunk;
+
 	shunk = a->shunk;
 	len = 0;
 	while (a && shunk == a->shunk)
