@@ -6,7 +6,7 @@
 /*   By: mochegri <mochegri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 15:15:34 by mochegri          #+#    #+#             */
-/*   Updated: 2021/05/14 14:48:59 by mochegri         ###   ########.fr       */
+/*   Updated: 2021/05/14 17:59:49 by mochegri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,5 +69,7 @@ void	ft_unshanking(t_stack **a, t_stack **b);
 int	ft_nbr_shunk(t_stack *a, int shunk);
 int	ft_get_max(t_stack *b, int shunk);
 int	ft_chr_grender_pivot(t_stack *a, int pivot);
+char*	ft_read_line(void);
+void	ft_sort_3(t_stack **a);
 
 #endif

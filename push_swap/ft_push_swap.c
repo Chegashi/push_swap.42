@@ -6,7 +6,7 @@
 /*   By: mochegri <mochegri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/14 15:46:29 by mochegri          #+#    #+#             */
-/*   Updated: 2021/05/14 14:49:53 by mochegri         ###   ########.fr       */
+/*   Updated: 2021/05/14 18:18:20 by mochegri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,14 @@ void	ft_quick_sort(t_stack **a, t_stack **b)
 {
 	if (ft_is_sorted(*a) && !(*b))
 		return;
-	ft_shanking(a, b, 1);
-	ft_unshanking(a, b);
+		printf("[[%d]]\n", ft_len_stack(*a));
+	if (ft_len_stack(*a) == 3)
+		ft_sort_3(a);
+	else
+	{
+		ft_shanking(a, b, 1);
+		ft_unshanking(a, b);
+	}
 }
 
 void	ft_shanking(t_stack **a, t_stack **b, int start)
@@ -209,4 +215,31 @@ int	ft_chr_grender_pivot(t_stack *a, int pivot)
 		sp = sp->next;
 	}
 	return (0);
+}
+
+void	ft_sort_3(t_stack **a)
+{
+	int	c1;
+	int	c2;
+	int	c3;
+
+	c1 = (*a)->data;
+	c2 = (*a)->next->data;
+	c3 = (*a)->next->next->data;
+	if (c1 > c2 && c2 < c1 && c1 < c3)
+		ft_swap(*a, 'a');
+	else if (c1 > c2 && c2 > c3 && c1 > c3)
+	{
+		ft_swap(*a, 'a');
+		ft_reverse(a, 'a');	
+	}
+	else if (c1 > c2 && c2 < c3 && c1 > c3)
+		ft_rotate(a, 'a');
+	else if (c1 < c2 && c2 > c3 && c1 < c3)
+	{
+		ft_swap(*a, 'a');
+		ft_reverse(a, 'a');	
+	}
+	else	
+		ft_reverse(a, 'a');
 }

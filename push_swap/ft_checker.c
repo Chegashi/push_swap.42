@@ -6,7 +6,7 @@
 /*   By: mochegri <mochegri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 15:15:28 by mochegri          #+#    #+#             */
-/*   Updated: 2021/05/13 17:19:44 by mochegri         ###   ########.fr       */
+/*   Updated: 2021/05/14 15:59:20 by mochegri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,16 +43,15 @@ int	main(int ac, char **av)
 
 char	*ft_read_cmd(void)
 {
-	char	cmd[10];
+	char	*cmd;
 	char	*cmds;
 	char	*tmp;
 
-	*cmd = 0;
 	cmds = ft_strdup("");
 	while (1)
 	{
-		cmd[read(0, cmd, 5) - 1] = 0;
-		if (!(*cmd))
+		cmd = ft_read_line();
+		if(!*cmd)
 			break;
 		ft_check_oper(cmd);
 		tmp = ft_strjoin(cmds, cmd);
@@ -62,7 +61,25 @@ char	*ft_read_cmd(void)
 		free(cmds);
 		cmds = tmp;
 	}
+	free(cmd);
 	return (cmds);
+}
+
+char	*ft_read_line(void)
+{
+	char i;
+	int n;
+	i = -1;
+	char *cmd = (char*)malloc(sizeof(char) * 5);
+
+	while (1)
+	{
+		n = read(0, cmd+(++i), 1);
+		if (! *(cmd + i) || *(cmd +i) == '\n' || n < 1 || n > 6)
+			break;
+	}
+	*(cmd + i) = '\0';
+	return(cmd);
 }
 
 void	ft_exec_cmd(t_push_swap *p_checker)
