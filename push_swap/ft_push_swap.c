@@ -16,16 +16,13 @@ int	main(int ac, char **av)
 {
 	t_push_swap		p_swap;
 
-	if (ac > 2)
-	{
-		av++;
-		ac--;
-		p_swap.a = ft_init_stack(ac, av);
-		p_swap.b = NULL;
-		ft_init_shunk(p_swap.a);
-		ft_quick_sort(&(p_swap.a), &(p_swap.b));
-		ft_free_stack(p_swap.a);
-	}
+	av++;
+	ac--;
+	p_swap.a = ft_init_stack(ac, av);
+	p_swap.b = NULL;
+	ft_init_shunk(p_swap.a);
+	ft_quick_sort(&(p_swap.a), &(p_swap.b));
+	ft_free_stack(p_swap.a);
 	return (0);
 }
 
@@ -37,7 +34,7 @@ void	ft_quick_sort(t_stack **a, t_stack **b)
 		ft_sort_3(a);
 	else
 	{
-		ft_shanking(a, b, 1);
+		ft_shanking(a, b, 1, 0);
 		ft_unshanking(a, b);
 	}
 }

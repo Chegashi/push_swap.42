@@ -26,6 +26,9 @@ void	ft_free_stack(t_stack *stack)
 
 void	ft_free(t_push_swap *p_checker)
 {
+	char	**tmp;
+
+	tmp = p_checker->cmd;
 	ft_free_stack(p_checker->a);
 	ft_free_stack(p_checker->b);
 	while (*(p_checker->cmd))
@@ -33,6 +36,7 @@ void	ft_free(t_push_swap *p_checker)
 		free(*(p_checker->cmd));
 		p_checker->cmd++;
 	}
+	free(tmp);
 }
 
 void	ft_check_duplicate(t_stack *a)

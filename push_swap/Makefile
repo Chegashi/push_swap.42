@@ -12,7 +12,7 @@
 
 NAME = push_swap
 
-flags = -Wall -Wextra -Werror -g
+flags = -Wall -Wextra -Werror -g -fsanitize=address
 
 SRCS =	libft/libft.c \
 		libft/ft_split.c \

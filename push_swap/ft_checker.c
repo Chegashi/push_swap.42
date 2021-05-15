@@ -15,30 +15,38 @@
 int	main(int ac, char **av)
 {
 	t_push_swap		p_checker;
+	char			*cmds;
 
-	av++;
-	if (--ac)
-	{
-		p_checker.color = !ft_strcmp("-c", *av);
-		p_checker.verbos = !ft_strcmp("-v", *av);
-		if (p_checker.color || p_checker.verbos)
-		{
-			p_checker.verbos = 1;
-			av++;
-			ac--;
-		}
-	}
+	ft_check_bonus(&av, &ac, &p_checker);
 	if (ac)
 	{
 		p_checker.a = ft_init_stack(ac, av);
 		ft_init_shunk(p_checker.a);
 		p_checker.b = NULL;
-		p_checker.cmd = ft_split(ft_read_cmd(), ' ');
+		cmds = ft_read_cmd();
+		p_checker.cmd = ft_split(cmds, ' ');
+		free(cmds);
 		ft_exec_cmd(&p_checker);
 		ft_checker(p_checker);
 		ft_free(&p_checker);
 	}
 	return (0);
+}
+
+void	ft_check_bonus(char ***av, int *ac, t_push_swap *p_checker)
+{
+	(*av)++;
+	if (--(*ac))
+	{
+		p_checker->color = !ft_strcmp("-c", **av);
+		p_checker->verbos = !ft_strcmp("-v", **av);
+		if (p_checker->color || p_checker->verbos)
+		{
+			p_checker->verbos = 1;
+			(*av)++;
+			(*ac)--;
+		}
+	}
 }
 
 char	*ft_read_cmd(void)
@@ -55,6 +63,7 @@ char	*ft_read_cmd(void)
 			break ;
 		ft_check_oper(cmd);
 		tmp = ft_strjoin(cmds, cmd);
+		free(cmd);
 		free(cmds);
 		cmds = tmp;
 		tmp = ft_strjoin(cmds, " ");
@@ -72,7 +81,7 @@ char	*ft_read_line(void)
 	char	*cmd;
 
 	i = -1;
-	cmd = (char *)malloc(sizeof(char) * 5);
+	cmd = (char *)malloc(sizeof(char) * 6);
 	while (1)
 	{
 		n = read(0, cmd + (++i), 1);

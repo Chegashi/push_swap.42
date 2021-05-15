@@ -68,9 +68,10 @@ void	print_header(char *str);
 void	ft_init_shunk(t_stack *a);
 void	ft_sort_integer_table(int *tab, int size);
 void	ft_quick_sort(t_stack **a, t_stack **b);
-void	ft_shanking(t_stack **a, t_stack **b, int start);
+void	ft_shanking(t_stack **a, t_stack **b, int start, int jocker);
 void	ft_unshanking(t_stack **a, t_stack **b);
 void	ft_sort_3(t_stack **a);
 void 	ft_b_divide(t_stack **a, t_stack **b);
+void	ft_check_bonus(char ***av, int *ac, t_push_swap *p_checker);
 t_stack	*ft_init_stack(int ac, char **av);
 #endif

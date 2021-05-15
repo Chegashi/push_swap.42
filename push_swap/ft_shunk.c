@@ -20,7 +20,7 @@ void	ft_unshanking(t_stack **a, t_stack **b)
 			ft_push(a, b, 'a');
 		else if (ft_nbr_shunk(*b, (*b)->shunk) == 2)
 		{
-			if ((*b)->data < (*b)->next->data)
+			if ((*b)->data <= (*b)->next->data)
 				ft_swap(*b, 'b');
 			ft_push(a, b, 'a');
 			ft_push(a, b, 'a');
@@ -30,19 +30,28 @@ void	ft_unshanking(t_stack **a, t_stack **b)
 	}
 }
 
-void	ft_shanking(t_stack **a, t_stack **b, int start)
+void	ft_shanking(t_stack **a, t_stack **b, int start, int nbr_ra)
 {
-	int	pivot;
-	int	shunk;
-	int	nbr_ra;
+	int  pivot;
+	int shunk;
 
 	shunk = (*a)->shunk;
 	while (!ft_is_sorted(*a) && ft_nbr_shunk(*a, (*a)->shunk) > 2)
 	{
 		shunk++;
+		nbr_ra = 0;
 		pivot = ft_get_the_midlle(*a, (*a)->shunk);
 		while (ft_chr_less_pivot(*a, pivot))
-			nbr_ra = ft_a_divide(a, b, pivot, shunk);
+			if ((*a)->data < pivot)
+			{
+				ft_push(b, a, 'b');
+				(*b)->shunk = shunk;
+			}
+			else
+			{
+				ft_rotate(a, 'a');
+				nbr_ra++;
+			}
 		while (!start && nbr_ra--)
 			ft_reverse(a, 'a');
 	}
@@ -74,29 +83,5 @@ void	ft_b_divide(t_stack **a, t_stack **b)
 	}
 	while (rb_nbr--)
 		ft_reverse(b, 'b');
-	ft_shanking(a, b, 0);
-}
-
-int	ft_a_divide(t_stack **a, t_stack **b, int pivot, int shunk)
-{
-	int	nbr_ra;
-
-	nbr_ra = 0;
-	if ((*a)->data < pivot)
-	{
-		ft_push(b, a, 'b');
-		(*b)->shunk = shunk;
-	}
-	else if (ft_bottum_stack(*a) < pivot)
-	{
-		ft_reverse(a, 'a');
-		ft_push(b, a, 'b');
-		(*b)->shunk = shunk;
-	}
-	else
-	{
-		ft_rotate(a, 'a');
-		nbr_ra++;
-	}
-	return (nbr_ra);
+	ft_shanking(a, b, 0, 0);
 }

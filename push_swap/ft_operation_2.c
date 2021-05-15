@@ -16,7 +16,7 @@ void	ft_swap(t_stack *a, int c)
 {
 	int	tmp;
 
-	if (ft_len_stack(a) > 1)
+	if (a && a->next)
 	{
 		tmp = a->data;
 		a->data = a->next->data;

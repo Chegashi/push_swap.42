@@ -16,13 +16,12 @@
 int	word_nbr( char *s, char c)
 {
 	int	count;
-
 	count = 0;
 	if (*s)
 		count++;
 	while (*s)
 	{
-		if (*s == c)
+		if (*s == c && *(s + 1))
 			count++;
 		s++;
 	}
@@ -55,7 +54,7 @@ char	**ft_fill(char *s, char c, char **wrds)
 
 	j = -1;
 	nbr_word = word_nbr(s, c);
-	while (*s && ++j < nbr_word)
+	while (++j < nbr_word && *s)
 	{
 		while (*s == c)
 			s++;
@@ -77,7 +76,7 @@ char	**ft_split(char *s, char c)
 
 	if (!s)
 		return (NULL);
-	wrds = malloc(sizeof(char *) * word_nbr(s, c) + 1);
+	wrds = malloc(sizeof(char *) * (word_nbr(s, c) + 1));
 	if (!wrds)
 		return (NULL);
 	return (ft_fill(s, c, wrds));
