@@ -6,7 +6,7 @@
 /*   By: mochegri <mochegri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/28 15:35:57 by mochegri          #+#    #+#             */
-/*   Updated: 2021/04/27 10:08:21 by mochegri         ###   ########.fr       */
+/*   Updated: 2021/05/15 15:58:49 by mochegri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,8 @@ int	ft_atoi(char *s)
 	while (*s)
 	{
 		nbr = nbr * 10 + (*s - '0');
-		if (!ft_isdigit(*s) || nbr > 2147483647 || nbr < -2147483648)
+		if (!ft_isdigit(*s) || (signe == 1 && nbr > 2147483647)
+			 || (signe == -1 && nbr > 2147483648))
 			ft_exit();
 		s++;
 	}

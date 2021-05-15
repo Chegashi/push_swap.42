@@ -6,7 +6,7 @@
 /*   By: mochegri <mochegri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/14 15:46:29 by mochegri          #+#    #+#             */
-/*   Updated: 2021/05/15 11:40:29 by mochegri         ###   ########.fr       */
+/*   Updated: 2021/05/15 15:51:35 by mochegri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,16 +19,19 @@ int	main(int ac, char **av)
 	av++;
 	ac--;
 	p_swap.a = ft_init_stack(ac, av);
-	p_swap.b = NULL;
-	ft_init_shunk(p_swap.a);
-	ft_quick_sort(&(p_swap.a), &(p_swap.b));
-	ft_free_stack(p_swap.a);
+	if (p_swap.a)
+	{
+		p_swap.b = NULL;
+		ft_init_shunk(p_swap.a);
+		ft_quick_sort(&(p_swap.a), &(p_swap.b));
+		ft_free_stack(p_swap.a);
+	}
 	return (0);
 }
 
 void	ft_quick_sort(t_stack **a, t_stack **b)
 {
-	if (ft_is_sorted(*a) && !(*b))
+	if (!a && ft_is_sorted(*a) && !(*b))
 		return ;
 	if (ft_len_stack(*a) == 3)
 		ft_sort_3(a);
