@@ -6,7 +6,7 @@
 /*   By: mochegri <mochegri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 15:15:28 by mochegri          #+#    #+#             */
-/*   Updated: 2021/05/14 18:30:25 by mochegri         ###   ########.fr       */
+/*   Updated: 2021/05/15 11:44:25 by mochegri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,14 +117,4 @@ void	ft_exec_cmd(t_push_swap *p_checker)
 		if (p_checker->verbos)
 			write(1, "\n\n", 1);
 	}
-}
-
-void	ft_checker(t_push_swap p_s)
-{
-	if (p_s.b || !ft_is_sorted(p_s.a))
-	{
-		ft_putstr("KO[not sorted]\n");
-		ft_exit();
-	}
-	ft_putstr("OK\n");
 }

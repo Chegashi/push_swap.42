@@ -6,7 +6,7 @@
 /*   By: mochegri <mochegri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 15:15:34 by mochegri          #+#    #+#             */
-/*   Updated: 2021/05/14 19:18:47 by mochegri         ###   ########.fr       */
+/*   Updated: 2021/05/15 11:59:32 by mochegri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ int		ft_get_max(t_stack *b, int shunk);
 int		ft_chr_grender_pivot(t_stack *a, int pivot);
 int		ft_chr_less_pivot(t_stack *a, int pivot);
 int		ft_a_divide(t_stack **a, t_stack **b, int pivot, int shunk);
+int		ft_help_norm(t_stack **a, t_stack **b, int pivot, int shunk);
 char	*ft_read_cmd(void);
 char	*ft_read_line(void);
 void	ft_swap(t_stack *a, int c);
@@ -71,7 +72,8 @@ void	ft_quick_sort(t_stack **a, t_stack **b);
 void	ft_shanking(t_stack **a, t_stack **b, int start, int jocker);
 void	ft_unshanking(t_stack **a, t_stack **b);
 void	ft_sort_3(t_stack **a);
-void 	ft_b_divide(t_stack **a, t_stack **b);
+void	ft_b_divide(t_stack **a, t_stack **b);
 void	ft_check_bonus(char ***av, int *ac, t_push_swap *p_checker);
 t_stack	*ft_init_stack(int ac, char **av);
+
 #endif

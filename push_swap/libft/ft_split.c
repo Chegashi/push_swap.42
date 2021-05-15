@@ -6,7 +6,7 @@
 /*   By: mochegri <mochegri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/12 01:35:36 by mochegri          #+#    #+#             */
-/*   Updated: 2021/04/26 17:00:28 by mochegri         ###   ########.fr       */
+/*   Updated: 2021/05/15 11:51:41 by mochegri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 int	word_nbr( char *s, char c)
 {
 	int	count;
+
 	count = 0;
 	if (*s)
 		count++;

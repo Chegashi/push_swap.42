@@ -6,7 +6,7 @@
 /*   By: mochegri <mochegri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/24 14:51:32 by mochegri          #+#    #+#             */
-/*   Updated: 2021/05/14 18:33:16 by mochegri         ###   ########.fr       */
+/*   Updated: 2021/05/15 11:44:14 by mochegri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,4 +84,14 @@ void	print_header(char *str)
 	ft_putstr("|\t\ta\t\t\t|\t\tb\t\t\t|\n");
 	ft_putchar_coef('*', 81);
 	ft_putstr("\n");
+}
+
+void	ft_checker(t_push_swap p_s)
+{
+	if (p_s.b || !ft_is_sorted(p_s.a))
+	{
+		ft_putstr("KO\n");
+		ft_exit();
+	}
+	ft_putstr("OK\n");
 }

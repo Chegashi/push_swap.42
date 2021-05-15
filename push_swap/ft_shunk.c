@@ -6,7 +6,7 @@
 /*   By: mochegri <mochegri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/14 18:41:24 by mochegri          #+#    #+#             */
-/*   Updated: 2021/05/14 19:22:40 by mochegri         ###   ########.fr       */
+/*   Updated: 2021/05/15 11:59:12 by mochegri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@ void	ft_unshanking(t_stack **a, t_stack **b)
 
 void	ft_shanking(t_stack **a, t_stack **b, int start, int nbr_ra)
 {
-	int  pivot;
-	int shunk;
+	int	pivot;
+	int	shunk;
 
 	shunk = (*a)->shunk;
 	while (!ft_is_sorted(*a) && ft_nbr_shunk(*a, (*a)->shunk) > 2)
@@ -42,21 +42,29 @@ void	ft_shanking(t_stack **a, t_stack **b, int start, int nbr_ra)
 		nbr_ra = 0;
 		pivot = ft_get_the_midlle(*a, (*a)->shunk);
 		while (ft_chr_less_pivot(*a, pivot))
-			if ((*a)->data < pivot)
-			{
-				ft_push(b, a, 'b');
-				(*b)->shunk = shunk;
-			}
-			else
+		{
+			if (ft_help_norm(a, b, pivot, shunk))
 			{
 				ft_rotate(a, 'a');
 				nbr_ra++;
 			}
+		}
 		while (!start && nbr_ra--)
 			ft_reverse(a, 'a');
 	}
 	if (!ft_is_sorted(*a))
 		ft_swap(*a, 'a');
+}
+
+int	ft_help_norm(t_stack **a, t_stack **b, int pivot, int shunk)
+{
+	if ((*a)->data < pivot)
+	{
+		ft_push(b, a, 'b');
+		(*b)->shunk = shunk;
+		return (0);
+	}
+	return (1);
 }
 
 void	ft_b_divide(t_stack **a, t_stack **b)
